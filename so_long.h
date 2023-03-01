@@ -9,7 +9,24 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+typedef struct s_mapdata {
+	char	**map;
+}	t_mapdata;
+
+//Argument Verification
+int		print_file_error(void);
+void	print_warning(void);
+int		print_one_argument_error(void);
+int		correct_arguments(int argc, char **argv);
+int		check_ber(char *arg, char *ber);
+void	file_opening_error(void);
+int		open_file(int fd, char *file_name);
+void	free_map(char **str);
+char	**map_initialization(int fd);
+char	**create_map(char *file_name);
+
 //Utilities
+char	**ft_strcat(char **map, char **new_map, size_t i);
 
 //Get_Next_Line
 char	*get_next_line(int fd, int check);
