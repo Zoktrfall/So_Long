@@ -46,10 +46,12 @@ char	**map_initialization(int fd)
 			exit(1);
 		}
 		map = ft_strcat(map, new_map, i);
-		new_map = NULL;
 		map[i] = get_next_line(fd, 0);
 		if (map[i] == NULL)
+		{
+			free(map[++i]);
 			break ;
+		}
 		map[++i] = NULL;
 	}
 	get_next_line(fd, 1);

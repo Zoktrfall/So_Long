@@ -8,6 +8,7 @@ int args_verification(int argc, char **argv, t_mapdata *game)
 	if(correct_arguments(argc, argv))
 		return (1);
 	map = create_map(argv[1]);
+
 	// int i = 0;
 	// while(map[i])
 	// {
