@@ -3,6 +3,7 @@
 void	file_opening_error(void)
 {
 	write(1, "Error When Opening A File\n", 26);
+	exit(0);
 }
 
 int	open_file(int fd, char *file_name)
