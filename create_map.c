@@ -14,20 +14,20 @@ int	open_file(int fd, char *file_name)
 	return (fd);
 }
 
-void	free_map(char **str)
+void	free_map(char ***str)
 {
 	int	i;
 
 	i = 0;
-	if (str == NULL)
+	if (*str == NULL)
 		return ;
-	while (str[i])
+	while ((*str)[i])
 	{
-		free(str[i]);
+		free((*str)[i]);
 		i++;
 	}
-	free(str);
-	str = NULL;
+	free(*str);
+	*str = NULL;
 }
 
 char	**map_initialization(int fd)
@@ -41,19 +41,17 @@ char	**map_initialization(int fd)
 	while (1)
 	{
 		new_map = malloc(sizeof(char *) * (i + 2));
+		new_map[i + 1] = NULL;
 		if (new_map == NULL)
 		{
-			free_map(map);
+			free_map(&map);
 			exit(1);
 		}
 		map = ft_strcat(map, new_map, i);
 		map[i] = get_next_line(fd, 0);
 		if (map[i] == NULL)
-		{
-			free(map[++i]);
 			break ;
-		}
-		map[++i] = NULL;
+		i++;
 	}
 	get_next_line(fd, 1);
 	return (map);

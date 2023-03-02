@@ -9,6 +9,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+//Delete
+#include <stdio.h>
+
 typedef struct s_mapdata {
 	char	**map;
 }	t_mapdata;
@@ -21,7 +24,7 @@ int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);
 void	file_opening_error(void);
 int		open_file(int fd, char *file_name);
-void	free_map(char **str);
+void	free_map(char ***str);
 char	**map_initialization(int fd);
 char	**create_map(char *file_name);
 

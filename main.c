@@ -1,7 +1,6 @@
 #include "so_long.h"
-#include <stdio.h>
 
-int error_rectangular(void)
+int error_rectangular(char **map)
 {
 	write(1, "The Map Is Not Rectangular\n", 27);
 	return (1);
@@ -38,7 +37,7 @@ int	rectangular_map(char **map)
 int	map_verification(char **map)
 {
 	if (rectangular_map(map))
-		return (error_rectangular());
+		return (error_rectangular(map));
 	return (0);
 }
 
@@ -50,7 +49,10 @@ int	args_verification(int argc, char **argv, t_mapdata *game)
 		return (1);
 	map = create_map(argv[1]);
 	if (map_verification(map))
+	{
+		free_map(&map);
 		return (1);
+	}
 	return (0);
 }
 
