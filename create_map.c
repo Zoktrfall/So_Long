@@ -2,7 +2,7 @@
 
 void	file_opening_error(void)
 {
-	write(1, "Error When Opening A File\n", 26);
+	write(1, "Error\nIt Was Not Possible To Open The File\n", 43);
 	exit(0);
 }
 

@@ -2,7 +2,7 @@
 
 int	error_rectangular(void)
 {
-	write(1, "The Map Is Not Rectangular\n", 27);
+	write(1, "Error\nThe Map Is Not Rectangular\n", 33);
 	return (1);
 }
 

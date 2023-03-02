@@ -2,7 +2,7 @@
 
 int	print_one_argument_error(void)
 {
-	write(1, "Please Enter A Map Name\n", 24);
+	write(1, "Error\nPlease Enter A Map Name\n", 30);
 	return (1);
 }
 
@@ -13,7 +13,7 @@ void	print_warning(void)
 
 int	print_file_error(void)
 {
-	write(1, "Map Should Be A (*.ber) File\n", 29);
+	write(1, "Error\nMap Should Be A (*.ber) File\n", 35);
 	return (1);
 }
 
