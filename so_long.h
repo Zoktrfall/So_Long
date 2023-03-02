@@ -27,6 +27,11 @@ int		open_file(int fd, char *file_name);
 void	free_map(char ***str);
 char	**map_initialization(int fd);
 char	**create_map(char *file_name);
+char	**optimization_map(char **map);
+size_t	counts(char **map);
+int		unprinted(char *str);
+int		error_rectangular(char **map);
+int		rectangular_map(char **map);
 
 //Utilities
 char	**ft_strcat(char **map, char **new_map, size_t i);

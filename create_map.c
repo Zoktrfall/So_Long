@@ -41,12 +41,12 @@ char	**map_initialization(int fd)
 	while (1)
 	{
 		new_map = malloc(sizeof(char *) * (i + 2));
-		new_map[i + 1] = NULL;
 		if (new_map == NULL)
 		{
 			free_map(&map);
 			exit(1);
 		}
+		new_map[i + 1] = NULL;
 		map = ft_strcat(map, new_map, i);
 		map[i] = get_next_line(fd, 0);
 		if (map[i] == NULL)
