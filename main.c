@@ -3,7 +3,7 @@
 int	map_verification(char **map)
 {
 	if (rectangular_map(map))
-		return (error_rectangular(map));
+		return (error_rectangular());
 	return (0);
 }
 

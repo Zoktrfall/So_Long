@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-int	error_rectangular(char **map)
+int	error_rectangular(void)
 {
 	write(1, "The Map Is Not Rectangular\n", 27);
 	return (1);

@@ -17,12 +17,8 @@ typedef struct s_mapdata {
 }	t_mapdata;
 
 //Argument Verification
-int		print_file_error(void);
-void	print_warning(void);
-int		print_one_argument_error(void);
 int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);
-void	file_opening_error(void);
 int		open_file(int fd, char *file_name);
 void	free_map(char ***str);
 char	**map_initialization(int fd);
@@ -30,7 +26,6 @@ char	**create_map(char *file_name);
 char	**optimization_map(char **map);
 size_t	counts(char **map);
 int		unprinted(char *str);
-int		error_rectangular(char **map);
 int		rectangular_map(char **map);
 
 //Utilities
@@ -47,5 +42,12 @@ char	*adds(char *ptr);
 size_t	ft_strlen(const char *str);
 int		characters_str(char *str);
 int		characters_ptr(char *str);
+
+//Errors and Warnings
+int		error_rectangular(void);
+int		print_file_error(void);
+void	print_warning(void);
+int		print_one_argument_error(void);
+void	file_opening_error(void);
 
 #endif
