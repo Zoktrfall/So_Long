@@ -4,6 +4,8 @@ int	map_verification(char **map)
 {
 	if (rectangular_map(map))
 		return (error_rectangular());
+	if (closed_surrounded(map))
+		return (error_walls());
 	return (0);
 }
 

@@ -21,6 +21,13 @@ void	error_empty(char **map);
 void	error_divided(char **map);
 int		divided_map(char **map);
 
+//Closed/Surrounded
+int		closed_surrounded(char **map);
+int		first_last_x(char *str);
+int		last_y(char **str);
+int		error_walls(void);
+int		first_y(char *str);
+
 //Argument Verification
 int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);
