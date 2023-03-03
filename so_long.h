@@ -16,6 +16,11 @@ typedef struct s_mapdata {
 	char	**map;
 }	t_mapdata;
 
+//The map is split or empty
+void	error_empty(char **map);
+void	error_divided(char **map);
+int		divided_map(char **map);
+
 //Argument Verification
 int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);
