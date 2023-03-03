@@ -13,7 +13,7 @@ int	map_verification(char **map)
 	return (0);
 }
 
-int	args_verification(int argc, char **argv, t_mapdata *game)
+int	args_verification(int argc, char **argv, t_gamedata *game)
 {
 	char	**map;
 
@@ -35,7 +35,7 @@ int	args_verification(int argc, char **argv, t_mapdata *game)
 
 int	main(int argc, char *argv[])
 {
-	t_mapdata game;
+	t_gamedata game;
 
 	if(args_verification(argc, argv, &game))
 		return (0);

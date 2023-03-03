@@ -17,20 +17,29 @@ typedef struct s_player {
 	size_t	y;
 }	t_player;
 
-typedef	struct s_objects {
+typedef struct s_objects {
 	size_t	coins;
 	size_t	enemies;
 	size_t	exit;
 }	t_objects;
 
-typedef struct s_mapdata {
+typedef struct s_gamedata {
 	char	**map;
-}	t_mapdata;
+}	t_gamedata;
 
 //The map is split or empty
 void	error_empty(char **map);
 void	error_divided(char **map);
 int		divided_map(char **map);
+
+//Rectangular map
+int		rectangular_map(char **map);
+int		error_rectangular(void);
+
+//Open file
+int		open_file(int fd, char *file_name);
+int		print_file_error(void);
+void	file_opening_error(void);
 
 //Closed/Surrounded
 int		closed_surrounded(char **map);
@@ -63,16 +72,16 @@ char	**creat_tmp(char **map);
 int		check_fill(char **map, t_objects medus);
 
 //Argument Verification
+void	print_warning(void);
+int		print_one_argument_error(void);
 int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);
-int		open_file(int fd, char *file_name);
 void	free_map(char ***str);
 char	**map_initialization(int fd);
 char	**create_map(char *file_name);
 char	**optimization_map(char **map);
 size_t	counts(char **map);
 int		unprinted(char *str);
-int		rectangular_map(char **map);
 
 //Utilities
 char	**ft_strcat(char **map, char **new_map, size_t i);
@@ -89,12 +98,5 @@ char	*adds(char *ptr);
 size_t	ft_strlen(const char *str);
 int		characters_str(char *str);
 int		characters_ptr(char *str);
-
-//Errors and Warnings
-int		error_rectangular(void);
-int		print_file_error(void);
-void	print_warning(void);
-int		print_one_argument_error(void);
-void	file_opening_error(void);
 
 #endif

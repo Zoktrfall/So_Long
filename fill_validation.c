@@ -8,13 +8,13 @@ int	error_valid_way(void)
 
 void	fill_validation(char **map, t_player play, t_objects *medus)
 {
-	if(map[play.y][play.x] == '5' || map[play.y][play.x] == '1')
+	if (map[play.y][play.x] == '5' || map[play.y][play.x] == '1')
 		return ;
-	if(map[play.y][play.x] == 'C')
+	if (map[play.y][play.x] == 'C')
 		((*medus).coins)++;
-	if(map[play.y][play.x] == 'E')
+	if (map[play.y][play.x] == 'E')
 		((*medus).exit)++;
-	if(map[play.y][play.x] == 'M')
+	if (map[play.y][play.x] == 'M')
 		((*medus).enemies)++;
 	map[play.y][play.x] = '5';
 	fill_validation(map, (t_player){(play.x) + 1, (play.y)}, (medus));
@@ -29,29 +29,29 @@ int	check_fill(char **map, t_objects medus)
 	size_t	coins;
 	size_t	enemies;
 	size_t	len;
-	
+
 	len = 0;
 	exit = 1;
-	while(map[len])
+	while (map[len])
 		len++;
 	coins = count_coins(map, len);
 	enemies = count_enemies(map, len);
-	if(medus.coins == coins && medus.enemies == enemies && medus.exit == exit)
+	if (medus.coins == coins && medus.enemies == enemies && medus.exit == exit)
 		return (0);
 	return (1);
 }
 
-char **creat_tmp(char **map)
+char	**creat_tmp(char **map)
 {
 	char	**tmp_map;
 	size_t	len;
 
 	len = 0;
-	while(map[len])
+	while (map[len])
 		len++;
 	tmp_map = malloc(sizeof(char *) * (len + 1));
 	len = 0;
-	while(map[len])
+	while (map[len])
 	{
 		tmp_map[len] = ft_strdup(map[len]);
 		len++;
@@ -60,7 +60,7 @@ char **creat_tmp(char **map)
 	return (tmp_map);
 }
 
-int valid_way(char **map)
+int	valid_way(char **map)
 {
 	t_player	play;
 	t_objects	medus;
@@ -73,7 +73,7 @@ int valid_way(char **map)
 	player_position(map, &play);
 	fill_validation(tmp_map, play, &medus);
 	free_map(&tmp_map);
-	if(check_fill(map, medus))
+	if (check_fill(map, medus))
 		error_valid_way();
 	return (0);
 }
