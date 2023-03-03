@@ -12,6 +12,17 @@
 //Delete
 #include <stdio.h>
 
+typedef struct s_player {
+	size_t	x;
+	size_t	y;
+}	t_player;
+
+typedef	struct s_objects {
+	size_t	coins;
+	size_t	enemies;
+	size_t	exit;
+}	t_objects;
+
 typedef struct s_mapdata {
 	char	**map;
 }	t_mapdata;
@@ -39,6 +50,18 @@ int		check_c_e_p(char **map);
 int		correct_chearacters(char **map, size_t len);
 int		chearacters(char *str);
 
+//Position the player and count coins, enemies
+void	player_position(char **map, t_player *play);
+size_t	count_enemies(char **map, size_t len);
+size_t	count_coins(char **map, size_t len);
+
+//Fill_Validation
+void	fill_validation(char **map, t_player play, t_objects *medus);
+int		valid_way(char **map);
+int		error_valid_way(void);
+char	**creat_tmp(char **map);
+int		check_fill(char **map, t_objects medus);
+
 //Argument Verification
 int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);
@@ -53,6 +76,7 @@ int		rectangular_map(char **map);
 
 //Utilities
 char	**ft_strcat(char **map, char **new_map, size_t i);
+char	*ft_strdup(const char *str);
 
 //Get_Next_Line
 char	*get_next_line(int fd, int check);

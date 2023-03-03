@@ -8,6 +8,8 @@ int	map_verification(char **map)
 		return (error_walls());
 	if (check_c_e_p(map))
 		return (error_c_e_p());
+	if (valid_way(map))
+		return (error_valid_way());
 	return (0);
 }
 

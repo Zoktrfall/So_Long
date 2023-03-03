@@ -59,7 +59,7 @@ int	check_c_m(char **map, size_t len)
 		x_axis = 0;
 		y_axis++;
 	}
-	if (!(coins >= 1 && medus <= 4))
+	if (!(coins >= 1 && medus <= 6))
 		return (1);
 	return (0);
 }
