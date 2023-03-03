@@ -34,6 +34,11 @@ int		check_e_p(char **map, size_t len);
 int		check_c_m(char **map, size_t len);
 int		do_check_c_e_p(char **map, size_t len);
 
+//Correct chearacters in map
+int		check_c_e_p(char **map);
+int		correct_chearacters(char **map, size_t len);
+int		chearacters(char *str);
+
 //Argument Verification
 int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);

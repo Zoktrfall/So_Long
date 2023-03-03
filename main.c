@@ -1,17 +1,5 @@
 #include "so_long.h"
 
-int check_c_e_p(char **map)
-{
-	size_t	len;
-
-	len = 0;
-	while(map[len])
-		len++;
-	if(do_check_c_e_p(map ,len))
-		return (1);
-	return (0);
-}
-
 int	map_verification(char **map)
 {
 	if (rectangular_map(map))
