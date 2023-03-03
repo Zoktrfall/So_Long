@@ -28,6 +28,12 @@ int		last_y(char **str);
 int		error_walls(void);
 int		first_y(char *str);
 
+//Player, Exit, Jellyfish, Coins
+int		error_c_e_p(void);
+int		check_e_p(char **map, size_t len);
+int		check_c_m(char **map, size_t len);
+int		do_check_c_e_p(char **map, size_t len);
+
 //Argument Verification
 int		correct_arguments(int argc, char **argv);
 int		check_ber(char *arg, char *ber);
