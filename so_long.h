@@ -8,6 +8,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <mlx.h>
 
 //Delete
 #include <stdio.h>
@@ -23,8 +24,20 @@ typedef struct s_objects {
 	size_t	exit;
 }	t_objects;
 
+typedef struct s_sprites {
+	void	*oper;
+}	t_sprites;
+
 typedef struct s_gamedata {
-	char	**map;
+	size_t		y_axis;
+	size_t		x_axis;
+	t_player	player;
+	size_t		score;
+	char		**map;
+	t_objects	objects;
+	size_t		coins_score;
+	size_t		game_over;
+	t_sprites	sprites;
 }	t_gamedata;
 
 //The map is split or empty
