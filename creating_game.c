@@ -1,5 +1,16 @@
 #include "so_long.h"
 
+t_sprites	ft_sprites(t_gamedata *game)
+{
+	int	size;
+
+	size = SIZE;
+	game->sprites.walls = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Walls/wall.xpm", &size, &size);
+	game->sprites.black = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Walls/black.xpm", &size, &size);
+	game->sprites.coins = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Pacdots/pacdot_food.xpm", &size, &size);
+	return game->sprites;
+}
+
 void	creating_game(char **map, t_gamedata *game)
 {
 	size_t	x_axis;

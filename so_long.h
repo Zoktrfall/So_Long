@@ -32,6 +32,9 @@ typedef struct s_objects {
 
 typedef struct s_sprites {
 	void	*walls;
+	void	*black;
+	void	*portal;
+	void	*coins;
 }	t_sprites;
 
 typedef struct s_gamedata {
@@ -124,5 +127,6 @@ int		characters_ptr(char *str);
 
 //Making Pac-Man
 void	creating_game(char **map, t_gamedata *game);
+t_sprites	ft_sprites(t_gamedata *game);
 
 #endif

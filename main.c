@@ -26,15 +26,26 @@ int	main(int argc, char *argv[])
 	}
 	int fx = 32, fy = 32;
 	game.mlx_ptr = mlx_init();
-	game.mlx_win = mlx_new_window(game.mlx_ptr, 500, 500, "Pac-Man");
-	void *gabess = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/Other/Walls/wall.xpm", &fx,&fy);
-	mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, gabess,0 , 0);
+	game.mlx_win = mlx_new_window(game.mlx_ptr, game.x_axis * SIZE, game.y_axis * SIZE, "Pac-Man");
+	int j = 0;
+	game.sprites = ft_sprites(&game);
+	i = 0;
+	while((game.map)[i])
+	{
+		while((game.map)[i][j] != '\0')
+		{
+			if((game.map)[i][j] == '1')
+				mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, game.sprites.walls , j * SIZE, i * SIZE);
+			if((game.map)[i][j] == '0')
+				mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, game.sprites.black , j * SIZE, i * SIZE);
+			if((game.map)[i][j] == 'C')
+				mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, game.sprites.coins , j * SIZE, i * SIZE);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
 	mlx_loop(game.mlx_ptr);
-
-
-
-
-
 	// free_map(&game.map);
 	printf("\n");
 	printf("continue\n");
