@@ -1,17 +1,13 @@
 #include "so_long.h"
 
-void 	creating_sprites(t_sprites *sprites, t_gamedata *game)
-{
-	int size = SIZE;
-	(*sprites).walls = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Walls/wall.xpm", &size, &size);
-}
-
 int	main(int argc, char *argv[])
 {
 	t_gamedata	game;
+	char 		**map;
 
-	if (args_verification(argc, argv, &game))
+	if (args_verification(argc, argv, &map))
 		return (0);
+	creating_game(map, &game);
 	printf("y_axis = %zu\n", game.y_axis);
 	printf("x_axis = %zu\n", game.x_axis);
 	printf("player pos x = %zu\n", game.player.x);
@@ -39,7 +35,7 @@ int	main(int argc, char *argv[])
 
 
 
-	free_map(&game.map);
+	// free_map(&game.map);
 	printf("\n");
 	printf("continue\n");
 	return (0);

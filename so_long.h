@@ -93,9 +93,8 @@ char	**creat_tmp(char **map);
 int		check_fill(char **map, t_objects medus);
 
 //Argument Verification
-int		args_verification(int argc, char **argv, t_gamedata *game);
+int		args_verification(int argc, char **argv, char ***map);
 int		map_verification(char **map);
-void	creating_game(char **map, t_gamedata *game);
 void	print_warning(void);
 int		print_one_argument_error(void);
 int		correct_arguments(int argc, char **argv);
@@ -122,5 +121,8 @@ char	*adds(char *ptr);
 size_t	ft_strlen(const char *str);
 int		characters_str(char *str);
 int		characters_ptr(char *str);
+
+//Making Pac-Man
+void	creating_game(char **map, t_gamedata *game);
 
 #endif
