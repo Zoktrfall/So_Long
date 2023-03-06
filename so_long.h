@@ -25,10 +25,12 @@ typedef struct s_objects {
 }	t_objects;
 
 typedef struct s_sprites {
-	void	*oper;
+	void	*walls;
 }	t_sprites;
 
 typedef struct s_gamedata {
+	void		*mlx_ptr;
+	void		*mlx_win;
 	size_t		y_axis;
 	size_t		x_axis;
 	t_player	player;

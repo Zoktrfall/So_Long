@@ -1,4 +1,5 @@
 #include "so_long.h"
+#define SIZE 32
 
 int	map_verification(char **map)
 {
@@ -11,6 +12,12 @@ int	map_verification(char **map)
 	if (valid_way(map))
 		return (error_valid_way());
 	return (0);
+}
+
+void 	creating_sprites(t_sprites *sprites, t_gamedata *game)
+{
+	int size = SIZE;
+	(*sprites).walls = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Walls/wall.xpm", &size, &size);
 }
 
 void	creating_game(char **map, t_gamedata *game)
@@ -34,7 +41,6 @@ void	creating_game(char **map, t_gamedata *game)
 	(*game).objects.coins = count_coins(map, y_axis);
 	(*game).objects.enemies = count_enemies(map, y_axis);
 	(*game).objects.exit = 1;
-	// creating_sprites(&game);
 }
 
 int	args_verification(int argc, char **argv, t_gamedata *game)
@@ -80,6 +86,24 @@ int	main(int argc, char *argv[])
 		printf("%s", game.map[i]);
 		i++;
 	}
+
+	int fx = 32, fy = 32;
+	game.mlx_ptr = mlx_init();
+	game.mlx_win = mlx_new_window(game.mlx_ptr, 500, 500, "Pac-Man");
+	void *gabess = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/Other/Walls/wall.xpm", &fx,&fy);
+	mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, gabess,0 , 0);
+	fx +=32;
+	mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, gabess, fx, 0);
+	fx +=32;
+	mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, gabess,fx , 0);
+	fx += 32;
+	mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, gabess,fx, 0);
+	mlx_loop(game.mlx_ptr);
+
+
+
+
+
 	free_map(&game.map);
 	printf("\n");
 	printf("continue\n");
