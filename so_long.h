@@ -8,10 +8,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <mlx.h>
+
+// 42
+// # include <mlx.h>
+// Home
+# include "mlx.h"
 
 //Delete
 #include <stdio.h>
+
+# define SIZE 32
 
 typedef struct s_player {
 	size_t	x;
@@ -87,6 +93,9 @@ char	**creat_tmp(char **map);
 int		check_fill(char **map, t_objects medus);
 
 //Argument Verification
+int		args_verification(int argc, char **argv, t_gamedata *game);
+int		map_verification(char **map);
+void	creating_game(char **map, t_gamedata *game);
 void	print_warning(void);
 int		print_one_argument_error(void);
 int		correct_arguments(int argc, char **argv);
