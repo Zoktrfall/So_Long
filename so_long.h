@@ -30,11 +30,25 @@ typedef struct s_objects {
 	size_t	exit;
 }	t_objects;
 
+typedef struct s_pacman {
+	void	*pac_closed;
+	void	*pac_open_down;
+	void	*pac_semi_down;
+	void	*pac_open_left;
+	void	*pac_semi_left;
+	void	*pac_open_right;
+	void	*pac_semi_right;
+	void	*pac_open_up;
+	void	*pac_semi_up;
+}	t_pacman;
+
 typedef struct s_sprites {
-	void	*walls;
-	void	*black;
-	void	*portal;
-	void	*coins;
+	void		*walls;
+	void		*black;
+	void		*portal;
+	void		*coins;
+	t_pacman	pac_man;
+	
 }	t_sprites;
 
 typedef struct s_gamedata {

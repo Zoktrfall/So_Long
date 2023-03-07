@@ -13,6 +13,8 @@ t_sprites	ft_sprites(t_gamedata *game)
 			"sprites/Other/Pacdots/pacdot_food.xpm", &size, &size);
 	game->sprites.portal = mlx_xpm_file_to_image(game->mlx_ptr, \
 			"sprites/Other/Portal/portal.xpm", &size, &size);
+	game->sprites.pac_man.pac_closed = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Pac-Man/pac_closed.xpm", &size, &size);
 	return (game->sprites);
 }
 

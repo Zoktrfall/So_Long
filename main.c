@@ -25,6 +25,8 @@ int	main(int argc, char *argv[])
 				mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, game.sprites.coins , j * SIZE, i * SIZE);
 			if((game.map)[i][j] == 'E')
 				mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, game.sprites.portal , j * SIZE, i * SIZE);
+			if((game.map)[i][j] == 'P')
+				mlx_put_image_to_window(game.mlx_ptr, game.mlx_win, game.sprites.pac_man.pac_closed , j * SIZE, i * SIZE);
 			j++;
 		}
 		j = 0;
