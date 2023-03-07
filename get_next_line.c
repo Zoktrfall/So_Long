@@ -29,10 +29,7 @@ char	*new_ptr(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] == '\n')
-		{
-			new_ptr[i++] = '\n';
 			break ;
-		}
 		new_ptr[i] = str[i];
 		i++;
 	}

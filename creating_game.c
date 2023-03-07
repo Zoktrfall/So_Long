@@ -5,10 +5,15 @@ t_sprites	ft_sprites(t_gamedata *game)
 	int	size;
 
 	size = SIZE;
-	game->sprites.walls = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Walls/wall.xpm", &size, &size);
-	game->sprites.black = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Walls/black.xpm", &size, &size);
-	game->sprites.coins = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/Other/Pacdots/pacdot_food.xpm", &size, &size);
-	return game->sprites;
+	game->sprites.walls = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"sprites/Other/Walls/wall.xpm", &size, &size);
+	game->sprites.black = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"sprites/Other/Walls/black.xpm", &size, &size);
+	game->sprites.coins = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"sprites/Other/Pacdots/pacdot_food.xpm", &size, &size);
+	game->sprites.portal = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"sprites/Other/Portal/portal.xpm", &size, &size);
+	return (game->sprites);
 }
 
 void	creating_game(char **map, t_gamedata *game)
@@ -32,4 +37,5 @@ void	creating_game(char **map, t_gamedata *game)
 	game->objects.coins = count_coins(map, y_axis);
 	game->objects.enemies = count_enemies(map, y_axis);
 	game->objects.exit = 1;
+	game->sprites = ft_sprites(game);
 }

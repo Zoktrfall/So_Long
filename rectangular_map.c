@@ -24,8 +24,6 @@ int	rectangular_map(char **map)
 	{
 		while (map[y_axis][x_axis] != '\0')
 			x_axis++;
-		if (map[y_axis][x_axis - 1] != '\n')
-			x_axis++;
 		if (x_axis != len)
 			return (1);
 		x_axis = 0;

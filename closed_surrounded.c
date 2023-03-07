@@ -52,7 +52,7 @@ int	first_last_x(char *str)
 		return (1);
 	while (str[i] != '\0')
 		i++;
-	if (str[i - 2] != '1')
+	if (str[i - 1] != '1')
 		return (1);
 	return (0);
 }
