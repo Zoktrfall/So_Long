@@ -25,7 +25,6 @@ void	creating_game(char **map, t_gamedata *game)
 
 	x_axis = 0;
 	y_axis = 0;
-	player_position(map, &(game->player));
 	game->map = map;
 	while (map[y_axis])
 		y_axis++;

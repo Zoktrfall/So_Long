@@ -8,7 +8,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-
 // 42
 // # include <mlx.h>
 // Home
@@ -48,7 +47,6 @@ typedef struct s_sprites {
 	void		*portal;
 	void		*coins;
 	t_pacman	pac_man;
-	
 }	t_sprites;
 
 typedef struct s_gamedata {
@@ -142,5 +140,16 @@ int			characters_ptr(char *str);
 //Making Pac-Man
 void		creating_game(char **map, t_gamedata *game);
 t_sprites	ft_sprites(t_gamedata *game);
+
+//Gamepath
+int			character_movement(int key_code, t_gamedata *game);
+void		move_left(t_gamedata *game);
+void		move_rigth(t_gamedata *game);
+void		move_down(t_gamedata *game);
+void		move_up(t_gamedata *game);
+
+//Graphic map
+void		refresh_image(t_gamedata *game);
+void		map_traversal(char *map, size_t y_axis, t_gamedata *game);
 
 #endif
