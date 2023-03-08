@@ -16,8 +16,11 @@ void	move_up(t_gamedata *game)
 	{
 		game->map[y - 1][x] = 'P';
 		game->map[y][x] = '0';
-		mlx_clear_window(game->mlx_ptr, game->mlx_win);
-		refresh_image(game); 
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.black, x * SIZE, y * SIZE);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pac_closed, x * SIZE, (y - 1) * SIZE);
+	player_position(game->map, &(game->player));
 	}
 }
 
@@ -37,8 +40,11 @@ void	move_down(t_gamedata *game)
 	{
 		game->map[y + 1][x] = 'P';
 		game->map[y][x] = '0';
-		mlx_clear_window(game->mlx_ptr, game->mlx_win);
-		refresh_image(game);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.black, x * SIZE, y * SIZE);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pac_closed, x * SIZE, (y + 1) * SIZE);
+	player_position(game->map, &(game->player));
 	}
 }
 
@@ -58,20 +64,12 @@ void	move_rigth(t_gamedata *game)
 	{
 		game->map[y][x + 1] = 'P';
 		game->map[y][x] = '0';
-		mlx_clear_window(game->mlx_ptr, game->mlx_win);
-		refresh_image(game);
-	}
-}
-
-void	ft_update(t_gamedata *game, size_t x, size_t y)
-{
-	game->player.x = x;
-	game->player.y = y;
-
-	int i = 0;
-	printf("ope1\n");
 	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-		game->sprites.pac_man.pac_closed, x * SIZE, y * SIZE);
+	game->sprites.black, x * SIZE, y * SIZE);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pac_closed, (x + 1) * SIZE, y * SIZE);
+	player_position(game->map, &(game->player));
+	}
 }
 
 void	move_left(t_gamedata *game)
@@ -90,10 +88,11 @@ void	move_left(t_gamedata *game)
 	{
 		game->map[y][x - 1] = 'P';
 		game->map[y][x] = '0';
-		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-		game->sprites.black, x * SIZE, y * SIZE);
-		ft_update(game, x - 1, y);
-		mlx_key_hook(game->mlx_ptr, character_movement, game);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.black, x * SIZE, y * SIZE);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pac_closed, (x - 1) * SIZE, y * SIZE);
+		player_position(game->map, &(game->player));
 	}
 }
 

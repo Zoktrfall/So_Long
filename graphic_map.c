@@ -16,10 +16,13 @@ void	map_traversal(char *map, size_t y_axis, t_gamedata *game)
 		if (map[x_axis] == 'E')
 			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
 			game->sprites.portal, x_axis * SIZE, y_axis * SIZE);
+		if (map[x_axis] == 'P')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+			game->sprites.pac_man.pac_closed, x_axis * SIZE, y_axis * SIZE);
 	}
 }
 
-int	refresh_image(t_gamedata *game)
+int	graphic_map(t_gamedata *game)
 {
 	size_t	y_axis;
 

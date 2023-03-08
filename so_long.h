@@ -9,9 +9,9 @@
 # include <stdlib.h>
 # include <fcntl.h>
 // 42
-# include <mlx.h>
+// # include <mlx.h>
 // Home
-// # include "mlx.h"
+# include "mlx.h"
 
 //Delete
 #include <stdio.h>
@@ -73,8 +73,6 @@ typedef struct s_gamedata {
 	t_sprites	sprites;
 	size_t		iteration;
 }	t_gamedata;
-
-void	start_game(t_gamedata *game, char **map);
 
 //The map is split or empty
 void		error_empty(char **map);
@@ -162,7 +160,7 @@ void		move_down(t_gamedata *game);
 void		move_up(t_gamedata *game);
 
 //Graphic map
-int			refresh_image(t_gamedata *game);
+int			graphic_map(t_gamedata *game);
 void		map_traversal(char *map, size_t y_axis, t_gamedata *game);
 
 #endif
