@@ -50,7 +50,7 @@ void	player_position(char **map, t_player *play)
 {
 	(*play).x = 0;
 	(*play).y = 0;
-	while (map[(*play).y][(*play).y])
+	while (map[(*play).y])
 	{	
 		while (map[(*play).y][(*play).x] != '\0')
 		{

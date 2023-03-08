@@ -1,13 +1,5 @@
 #include "so_long.h"
 
-enum e_gamepath {
-	W = 13,
-	S = 1,
-	D = 2,
-	A = 0,
-	ESC = 53,
-};
-
 void	move_up(t_gamedata *game)
 {
 	size_t	x;
@@ -25,7 +17,7 @@ void	move_up(t_gamedata *game)
 		game->map[y - 1][x] = 'P';
 		game->map[y][x] = '0';
 		mlx_clear_window(game->mlx_ptr, game->mlx_win);
-		refresh_image(game);
+		refresh_image(game); 
 	}
 }
 
@@ -71,6 +63,17 @@ void	move_rigth(t_gamedata *game)
 	}
 }
 
+void	ft_update(t_gamedata *game, size_t x, size_t y)
+{
+	game->player.x = x;
+	game->player.y = y;
+
+	int i = 0;
+	printf("ope1\n");
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+		game->sprites.pac_man.pac_closed, x * SIZE, y * SIZE);
+}
+
 void	move_left(t_gamedata *game)
 {
 	size_t	x;
@@ -87,8 +90,10 @@ void	move_left(t_gamedata *game)
 	{
 		game->map[y][x - 1] = 'P';
 		game->map[y][x] = '0';
-		mlx_clear_window(game->mlx_ptr, game->mlx_win);
-		refresh_image(game);
+		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+		game->sprites.black, x * SIZE, y * SIZE);
+		ft_update(game, x - 1, y);
+		mlx_key_hook(game->mlx_ptr, character_movement, game);
 	}
 }
 

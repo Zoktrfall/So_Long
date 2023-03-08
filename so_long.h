@@ -9,14 +9,22 @@
 # include <stdlib.h>
 # include <fcntl.h>
 // 42
-// # include <mlx.h>
+# include <mlx.h>
 // Home
-# include "mlx.h"
+// # include "mlx.h"
 
 //Delete
 #include <stdio.h>
 
 # define SIZE 32
+
+enum e_gamepath {
+	W = 13,
+	S = 1,
+	D = 2,
+	A = 0,
+	ESC = 53,
+};
 
 typedef struct s_player {
 	size_t	x;
@@ -39,6 +47,7 @@ typedef struct s_pacman {
 	void	*pac_semi_right;
 	void	*pac_open_up;
 	void	*pac_semi_up;
+	size_t	state;
 }	t_pacman;
 
 typedef struct s_sprites {
@@ -60,8 +69,12 @@ typedef struct s_gamedata {
 	t_objects	objects;
 	size_t		coins_score;
 	size_t		game_over;
+	size_t		gamepath;
 	t_sprites	sprites;
+	size_t		iteration;
 }	t_gamedata;
+
+void	start_game(t_gamedata *game, char **map);
 
 //The map is split or empty
 void		error_empty(char **map);
@@ -149,7 +162,7 @@ void		move_down(t_gamedata *game);
 void		move_up(t_gamedata *game);
 
 //Graphic map
-void		refresh_image(t_gamedata *game);
+int			refresh_image(t_gamedata *game);
 void		map_traversal(char *map, size_t y_axis, t_gamedata *game);
 
 #endif
