@@ -11,15 +11,18 @@ void	pacman_down(t_gamedata *game)
 	else if (counter1 == game->sprites.pac_man.state * 2)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_open_down;
-	else if (counter1 == game->sprites.pac_man.state * 4)
+	else if (counter1 == game->sprites.pac_man.state * 3)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_semi_down;
-	else if (counter1 >= game->sprites.pac_man.state * 6)
+	else if (counter1 >= game->sprites.pac_man.state * 4)
 	{
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_closed;
 		counter1 = 0;
 	}
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pacman_status, \
+	game->player.x * SIZE, game->player.y * SIZE);
 }
 
 void	pacman_right(t_gamedata *game)
@@ -33,15 +36,18 @@ void	pacman_right(t_gamedata *game)
 	else if (counter2 == game->sprites.pac_man.state * 2)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_open_right;
-	else if (counter2 == game->sprites.pac_man.state * 4)
+	else if (counter2 == game->sprites.pac_man.state * 3)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_semi_right;
-	else if (counter2 >= game->sprites.pac_man.state * 6)
+	else if (counter2 >= game->sprites.pac_man.state * 4)
 	{
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_closed;
 		counter2 = 0;
 	}
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pacman_status, \
+	game->player.x * SIZE, game->player.y * SIZE);
 }
 
 void	pacman_left(t_gamedata *game)
@@ -55,15 +61,18 @@ void	pacman_left(t_gamedata *game)
 	else if (counter3 == game->sprites.pac_man.state * 2)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_open_left;
-	else if (counter3 == game->sprites.pac_man.state * 4)
+	else if (counter3 == game->sprites.pac_man.state * 3)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_semi_left;
-	else if (counter3 >= game->sprites.pac_man.state * 6)
+	else if (counter3 >= game->sprites.pac_man.state * 4)
 	{
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_closed;
 		counter3 = 0;
 	}
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pacman_status, \
+	game->player.x * SIZE, game->player.y * SIZE);
 }
 
 void	pacman_up(t_gamedata *game)
@@ -77,13 +86,16 @@ void	pacman_up(t_gamedata *game)
 	else if (counter4 == game->sprites.pac_man.state * 2)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_open_up;
-	else if (counter4 == game->sprites.pac_man.state * 4)
+	else if (counter4 == game->sprites.pac_man.state * 3)
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_semi_up;
-	else if (counter4 >= game->sprites.pac_man.state * 6)
+	else if (counter4 >= game->sprites.pac_man.state * 4)
 	{
 		game->sprites.pac_man.pacman_status = \
 		game->sprites.pac_man.pac_closed;
 		counter4 = 0;
 	}
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.pac_man.pacman_status, \
+	game->player.x * SIZE, game->player.y * SIZE);
 }

@@ -7,20 +7,6 @@ int end_program()
 }
 
 
-int	refresh_image(t_gamedata *game)
-{
-	if(game->gamepath == S)
-		pacman_down(game);
-	if(game->gamepath == W)
-		pacman_up(game);
-	if(game->gamepath == A)
-		pacman_left(game);
-	if(game->gamepath == D)
-		pacman_right(game);
-	graphic_map(game);
-	return 0;
-}
-
 void	start_game(t_gamedata *game, char **map)
 {
 	game->mlx_ptr = mlx_init();
@@ -29,8 +15,8 @@ void	start_game(t_gamedata *game, char **map)
 		game->x_axis * SIZE, game->y_axis * SIZE, "Pac-Man");
 	graphic_map(game);
 	mlx_hook(game->mlx_win, 17, 0, end_program, game);
+	mlx_loop_hook(game->mlx_ptr, graphic_map, game);
 	mlx_key_hook(game->mlx_win, character_movement, game);
-	mlx_loop_hook(game->mlx_ptr, refresh_image, game);
 	mlx_loop(game->mlx_ptr);
 }
 
