@@ -38,18 +38,33 @@ typedef struct s_objects {
 	size_t	exit;
 }	t_objects;
 
+typedef struct s_pacman_dying {
+	void	*dying1;
+	void	*dying2;
+	void	*dying3;
+	void	*dying4;
+	void	*dying5;
+	void	*dying6;
+	void	*dying7;
+	void	*dying8;
+	void	*dying9;
+	void	*dying10;
+	void	*whoosh;
+}	t_pacman_dying;
+
 typedef struct s_pacman {
-	void	*pac_closed;
-	void	*pac_open_down;
-	void	*pac_semi_down;
-	void	*pac_open_left;
-	void	*pac_semi_left;
-	void	*pac_open_right;
-	void	*pac_semi_right;
-	void	*pac_open_up;
-	void	*pac_semi_up;
-	void	*pacman_status;
-	size_t	state;
+	void			*pac_closed;
+	void			*pac_open_down;
+	void			*pac_semi_down;
+	void			*pac_open_left;
+	void			*pac_semi_left;
+	void			*pac_open_right;
+	void			*pac_semi_right;
+	void			*pac_open_up;
+	void			*pac_semi_up;
+	void			*pacman_status;
+	t_pacman_dying	dead;
+	size_t			state;
 }	t_pacman;
 
 typedef struct s_sprites {
@@ -77,98 +92,100 @@ typedef struct s_gamedata {
 }	t_gamedata;
 
 //The map is split or empty
-void		error_empty(char **map);
-void		error_divided(char **map);
-int			divided_map(char **map);
+void			error_empty(char **map);
+void			error_divided(char **map);
+int				divided_map(char **map);
 
 //Rectangular map
-int			rectangular_map(char **map);
-int			error_rectangular(void);
+int				rectangular_map(char **map);
+int				error_rectangular(void);
 
 //Open file
-int			open_file(int fd, char *file_name);
-int			print_file_error(void);
-void		file_opening_error(void);
+int				open_file(int fd, char *file_name);
+int				print_file_error(void);
+void			file_opening_error(void);
 
 //Closed/Surrounded
-int			closed_surrounded(char **map);
-int			first_last_x(char *str);
-int			last_y(char **str);
-int			error_walls(void);
-int			first_y(char *str);
+int				closed_surrounded(char **map);
+int				first_last_x(char *str);
+int				last_y(char **str);
+int				error_walls(void);
+int				first_y(char *str);
 
 //Player, Exit, Jellyfish, Coins
-int			error_c_e_p(void);
-int			check_e_p(char **map, size_t len);
-int			check_c_m(char **map, size_t len);
-int			do_check_c_e_p(char **map, size_t len);
+int				error_c_e_p(void);
+int				check_e_p(char **map, size_t len);
+int				check_c_m(char **map, size_t len);
+int				do_check_c_e_p(char **map, size_t len);
 
 //Correct chearacters in map
-int			check_c_e_p(char **map);
-int			correct_chearacters(char **map, size_t len);
-int			chearacters(char *str);
+int				check_c_e_p(char **map);
+int				correct_chearacters(char **map, size_t len);
+int				chearacters(char *str);
 
 //Position the player and count coins, enemies
-void		player_position(char **map, t_player *play);
-size_t		count_enemies(char **map, size_t len);
-size_t		count_coins(char **map, size_t len);
+void			player_position(char **map, t_player *play);
+size_t			count_enemies(char **map, size_t len);
+size_t			count_coins(char **map, size_t len);
 
 //Fill_Validation
-void		fill_validation(char **map, t_player play, t_objects *medus);
-int			valid_way(char **map);
-int			error_valid_way(void);
-char		**creat_tmp(char **map);
-int			check_fill(char **map, t_objects medus);
+void			fill_validation(char **map, t_player play, t_objects *medus);
+int				valid_way(char **map);
+int				error_valid_way(void);
+char			**creat_tmp(char **map);
+int				check_fill(char **map, t_objects medus);
 
 //Argument Verification
-int			args_verification(int argc, char **argv, char ***map);
-int			map_verification(char **map);
-void		print_warning(void);
-int			print_one_argument_error(void);
-int			correct_arguments(int argc, char **argv);
-int			check_ber(char *arg, char *ber);
-void		free_map(char ***str);
-char		**map_initialization(int fd);
-char		**create_map(char *file_name);
-char		**optimization_map(char **map);
-size_t		counts(char **map);
-int			unprinted(char *str);
+int				args_verification(int argc, char **argv, char ***map);
+int				map_verification(char **map);
+void			print_warning(void);
+int				print_one_argument_error(void);
+int				correct_arguments(int argc, char **argv);
+int				check_ber(char *arg, char *ber);
+void			free_map(char ***str);
+char			**map_initialization(int fd);
+char			**create_map(char *file_name);
+char			**optimization_map(char **map);
+size_t			counts(char **map);
+int				unprinted(char *str);
 
 //Utilities
-char		**ft_strcat(char **map, char **new_map, size_t i);
-char		*ft_strdup(const char *str);
+char			**ft_strcat(char **map, char **new_map, size_t i);
+char			*ft_strdup(const char *str);
 
 //Get_Next_Line
-char		*get_next_line(int fd, int check);
-char		*replace_str(int fd, char *ptr, char *str);
-char		*new_str(char *str);
-char		*new_ptr(char *str);
-char		*ft_strchr(const char *str, int ch);
-char		*ft_strjoin_exlusive(char *str, char *ptr);
-char		*adds(char *ptr);
-size_t		ft_strlen(const char *str);
-int			characters_str(char *str);
-int			characters_ptr(char *str);
+char			*get_next_line(int fd, int check);
+char			*replace_str(int fd, char *ptr, char *str);
+char			*new_str(char *str);
+char			*new_ptr(char *str);
+char			*ft_strchr(const char *str, int ch);
+char			*ft_strjoin_exlusive(char *str, char *ptr);
+char			*adds(char *ptr);
+size_t			ft_strlen(const char *str);
+int				characters_str(char *str);
+int				characters_ptr(char *str);
 
 //Making Pac-Man
-void		creating_game(char **map, t_gamedata *game);
-t_sprites	ft_sprites(t_gamedata *game);
+void			creating_game(char **map, t_gamedata *game);
+t_sprites		ft_sprites(t_gamedata *game);
+t_pacman		add_sprites_pacman(t_gamedata *game);
+t_pacman_dying	pacman_dying(t_pacman_dying *dead, t_gamedata *game, int size);
 
 //Gamepath
-int			character_movement(int key_code, t_gamedata *game);
-void		move_left(t_gamedata *game);
-void		move_rigth(t_gamedata *game);
-void		move_down(t_gamedata *game);
-void		move_up(t_gamedata *game);
+int				character_movement(int key_code, t_gamedata *game);
+void			move_left(t_gamedata *game);
+void			move_rigth(t_gamedata *game);
+void			move_down(t_gamedata *game);
+void			move_up(t_gamedata *game);
 
 //Graphic map
-int			graphic_map(t_gamedata *game);
-void		map_traversal(char *map, size_t y_axis, t_gamedata *game);
+int				graphic_map(t_gamedata *game);
+void			map_traversal(char *map, size_t y_axis, t_gamedata *game);
 
 //Packman motion animation
-void		pacman_down(t_gamedata *game);
-void		pacman_right(t_gamedata *game);
-void		pacman_left(t_gamedata *game);
-void		pacman_up(t_gamedata *game);
+void			pacman_down(t_gamedata *game);
+void			pacman_right(t_gamedata *game);
+void			pacman_left(t_gamedata *game);
+void			pacman_up(t_gamedata *game);
 
 #endif
