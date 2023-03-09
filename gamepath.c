@@ -16,11 +16,7 @@ void	move_up(t_gamedata *game)
 	{
 		game->map[y - 1][x] = 'P';
 		game->map[y][x] = '0';
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.black, x * SIZE, y * SIZE);
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.pac_man.pac_closed, x * SIZE, (y - 1) * SIZE);
-	player_position(game->map, &(game->player));
+		game->gamepath = W;
 	}
 }
 
@@ -40,11 +36,7 @@ void	move_down(t_gamedata *game)
 	{
 		game->map[y + 1][x] = 'P';
 		game->map[y][x] = '0';
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.black, x * SIZE, y * SIZE);
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.pac_man.pac_closed, x * SIZE, (y + 1) * SIZE);
-	player_position(game->map, &(game->player));
+		game->gamepath = S;
 	}
 }
 
@@ -64,11 +56,7 @@ void	move_rigth(t_gamedata *game)
 	{
 		game->map[y][x + 1] = 'P';
 		game->map[y][x] = '0';
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.black, x * SIZE, y * SIZE);
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.pac_man.pac_closed, (x + 1) * SIZE, y * SIZE);
-	player_position(game->map, &(game->player));
+		game->gamepath = D;
 	}
 }
 
@@ -88,11 +76,7 @@ void	move_left(t_gamedata *game)
 	{
 		game->map[y][x - 1] = 'P';
 		game->map[y][x] = '0';
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.black, x * SIZE, y * SIZE);
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.pac_man.pac_closed, (x - 1) * SIZE, y * SIZE);
-		player_position(game->map, &(game->player));
+		game->gamepath = A;
 	}
 }
 

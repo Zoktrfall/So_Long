@@ -23,6 +23,7 @@ t_pacman	add_sprites_pacman(t_gamedata *game)
 			"sprites/Pac-Man/pac_semi_right.xpm", &size, &size);
 	game->sprites.pac_man.pac_semi_up = mlx_xpm_file_to_image(game->mlx_ptr, \
 			"sprites/Pac-Man/pac_semi_up.xpm", &size, &size);
+	game->sprites.pac_man.pacman_status = game->sprites.pac_man.pac_closed;
 	return (game->sprites.pac_man);
 }
 
@@ -64,5 +65,7 @@ void	creating_game(char **map, t_gamedata *game)
 	game->objects.coins = count_coins(map, y_axis);
 	game->objects.enemies = count_enemies(map, y_axis);
 	game->objects.exit = 1;
+	game->gamepath = -1;
+	game->sprites.pac_man.state = 1;
 	game->sprites = ft_sprites(game);
 }

@@ -8,6 +8,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 // 42
 // # include <mlx.h>
 // Home
@@ -47,6 +48,7 @@ typedef struct s_pacman {
 	void	*pac_semi_right;
 	void	*pac_open_up;
 	void	*pac_semi_up;
+	void	*pacman_status;
 	size_t	state;
 }	t_pacman;
 
@@ -162,5 +164,11 @@ void		move_up(t_gamedata *game);
 //Graphic map
 int			graphic_map(t_gamedata *game);
 void		map_traversal(char *map, size_t y_axis, t_gamedata *game);
+
+//Packman motion animation
+void		pacman_down(t_gamedata *game);
+void		pacman_right(t_gamedata *game);
+void		pacman_left(t_gamedata *game);
+void		pacman_up(t_gamedata *game);
 
 #endif
