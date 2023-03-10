@@ -30,7 +30,7 @@ int	refresh_image(t_gamedata *game)
 		pacman_left(game);
 	else if (game->gamepath == D)
 		pacman_right(game);
-	else
+	else if (game->game_over != 1)
 		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
 		game->sprites.pac_man.pac_closed, \
 		game->player.x * SIZE, game->player.y * SIZE);
@@ -43,6 +43,8 @@ int	graphic_map(t_gamedata *game)
 
 	y_axis = -1;
 	mlx_clear_window(game->mlx_ptr, game->mlx_win);
+	if (game->game_over == 1)
+		end_game(game);
 	refresh_image(game);
 	while ((game->map)[++y_axis])
 		map_traversal((game->map)[y_axis], y_axis, game);

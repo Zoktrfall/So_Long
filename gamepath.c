@@ -96,5 +96,10 @@ int	character_movement(int key_code, t_gamedata *game)
 		move_rigth(game);
 	else if (key_code == A)
 		move_left(game);
+	else if (key_code == 40)
+	{
+		game->gamepath = -1;
+		game->game_over = 1;
+	}
 	return (0);
 }

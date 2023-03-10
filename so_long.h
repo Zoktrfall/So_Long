@@ -99,7 +99,10 @@ typedef struct s_gamedata {
 	t_list		*head_up;
 	t_list		*oper_down;
 	t_list		*head_down;
+	t_list		*pac_dying;
+	t_list		*dying_head;
 	size_t		time_pac;
+	size_t		flag_dead;
 	size_t		max_time;
 }	t_gamedata;
 
@@ -199,17 +202,20 @@ void			move_up(t_gamedata *game);
 int				graphic_map(t_gamedata *game);
 void			map_traversal(char *map, size_t y_axis, t_gamedata *game);
 
-//Packman motion animation
+//Packman motion animation and dying
 void			pacman_down(t_gamedata *game);
 void			pacman_right(t_gamedata *game);
 void			pacman_left(t_gamedata *game);
 void			pacman_up(t_gamedata *game);
+void			end_game(t_gamedata *game);
+void			pac_dead_animation(t_gamedata *game);
 
-//Pacman motion animation container
+//Pacman motion animation and dying container
 t_list			*ft_container_right(t_gamedata *game);
 t_list			*ft_container_down(t_gamedata *game);
 t_list			*ft_container_up(t_gamedata *game);
 t_list			*ft_container_left(t_gamedata *game);
 void			ft_containers(t_gamedata *game);
+t_list			*ft_container_dying(t_gamedata *game);
 
 #endif
