@@ -65,7 +65,6 @@ void	creating_game(char **map, t_gamedata *game)
 	game->objects.enemies = count_enemies(map, y_axis);
 	game->objects.exit = 1;
 	game->gamepath = -1;
-	game->sprites.pac_man.state = 1;
 	game->sprites = ft_sprites(game);
 	ft_containers(game);
 }

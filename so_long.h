@@ -62,9 +62,7 @@ typedef struct s_pacman {
 	void			*pac_semi_right;
 	void			*pac_open_up;
 	void			*pac_semi_up;
-	void			*pacman_status;
 	t_pacman_dying	dead;
-	size_t			state;
 }	t_pacman;
 
 typedef struct s_sprites {
@@ -93,7 +91,6 @@ typedef struct s_gamedata {
 	size_t		game_over;
 	size_t		gamepath;
 	t_sprites	sprites;
-	size_t		iteration;
 	t_list		*oper_right;
 	t_list		*head_right;
 	t_list		*oper_left;
