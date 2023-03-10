@@ -25,3 +25,20 @@ t_list	*add_to_end(t_list *head, void *sprite)
 	head = tmp;
 	return (head);
 }
+
+size_t	ft_log(size_t x, size_t y)
+{
+	size_t	i;
+	size_t	n;
+
+	i = 1;
+	n = 4;
+	while (n < x * y)
+	{
+		n = n * 2;
+		++i;
+	}
+	if (i > 11)
+		return (11);
+	return (i);
+}

@@ -99,10 +99,12 @@ typedef struct s_gamedata {
 	t_list		*head_up;
 	t_list		*oper_down;
 	t_list		*head_down;
+	size_t		time_pac;
+	size_t		max_time;
 }	t_gamedata;
 
-//List of operations
-
+//Utils
+size_t			ft_log(size_t x, size_t y);
 t_list			*add_to_empty(t_list *head, void *sprite);
 t_list			*add_to_end(t_list *head, void *sprite);
 
