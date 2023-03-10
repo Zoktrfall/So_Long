@@ -32,7 +32,7 @@ int	refresh_image(t_gamedata *game)
 		pacman_right(game);
 	else
 		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-		game->sprites.pac_man.pacman_status, \
+		game->sprites.pac_man.pac_closed, \
 		game->player.x * SIZE, game->player.y * SIZE);
 	return (0);
 }

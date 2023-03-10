@@ -13,7 +13,6 @@ void	start_game(t_gamedata *game, char **map)
 	creating_game(map, game);
 	game->mlx_win = mlx_new_window(game->mlx_ptr, \
 		game->x_axis * SIZE, game->y_axis * SIZE, "Pac-Man");
-	graphic_map(game);
 	mlx_hook(game->mlx_win, 17, 0, end_program, game);
 	mlx_loop_hook(game->mlx_ptr, graphic_map, game);
 	mlx_key_hook(game->mlx_win, character_movement, game);

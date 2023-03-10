@@ -10,9 +10,9 @@
 # include <fcntl.h>
 # include <math.h>
 // 42
-// # include <mlx.h>
+# include <mlx.h>
 // Home
-# include "mlx.h"
+// # include "mlx.h"
 
 //Delete
 #include <stdio.h>
@@ -75,6 +75,11 @@ typedef struct s_sprites {
 	t_pacman	pac_man;
 }	t_sprites;
 
+typedef struct s_list {
+	void			*container;
+	struct s_list	*next;
+}	t_list;
+
 typedef struct s_gamedata {
 	void		*mlx_ptr;
 	void		*mlx_win;
@@ -89,7 +94,20 @@ typedef struct s_gamedata {
 	size_t		gamepath;
 	t_sprites	sprites;
 	size_t		iteration;
+	t_list		*oper_right;
+	t_list		*head_right;
+	t_list		*oper_left;
+	t_list		*head_left;
+	t_list		*oper_up;
+	t_list		*head_up;
+	t_list		*oper_down;
+	t_list		*head_down;
 }	t_gamedata;
+
+//List of operations
+
+t_list			*add_to_empty(t_list *head, void *sprite);
+t_list			*add_to_end(t_list *head, void *sprite);
 
 //The map is split or empty
 void			error_empty(char **map);
@@ -187,5 +205,12 @@ void			pacman_down(t_gamedata *game);
 void			pacman_right(t_gamedata *game);
 void			pacman_left(t_gamedata *game);
 void			pacman_up(t_gamedata *game);
+
+//Pacman motion animation container
+t_list			*ft_container_right(t_gamedata *game);
+t_list			*ft_container_down(t_gamedata *game);
+t_list			*ft_container_up(t_gamedata *game);
+t_list			*ft_container_left(t_gamedata *game);
+void			ft_containers(t_gamedata *game);
 
 #endif
