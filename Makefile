@@ -1,9 +1,9 @@
 NAME = so_long
 
 # 42
-MLX = -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
+# MLX = -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit
 # Home
-# MLX = -L. -lmlx -framework OpenGL -framework AppKit
+MLX = -L. -lmlx -framework OpenGL -framework AppKit
 
 SRC = $(wildcard *.c)
 OBJ = $(patsubst %.c, %.o, $(SRC))

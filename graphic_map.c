@@ -22,13 +22,13 @@ void	map_traversal(char *map, size_t y_axis, t_gamedata *game)
 int	refresh_image(t_gamedata *game)
 {
 	player_position(game->map, &(game->player));
-	if (game->gamepath == S)
+	if (game->gamepath == S && game->game_over != 1)
 		pacman_down(game);
-	else if (game->gamepath == W)
+	else if (game->gamepath == W && game->game_over != 1)
 		pacman_up(game);
-	else if (game->gamepath == A)
+	else if (game->gamepath == A && game->game_over != 1)
 		pacman_left(game);
-	else if (game->gamepath == D)
+	else if (game->gamepath == D && game->game_over != 1)
 		pacman_right(game);
 	else if (game->game_over != 1)
 		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \

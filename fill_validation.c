@@ -50,11 +50,21 @@ char	**creat_tmp(char **map)
 	while (map[len])
 		len++;
 	tmp_map = malloc(sizeof(char *) * (len + 1));
-	len = 0;
-	while (map[len])
+	if (tmp_map == NULL)
+	{
+		free_map(&map);
+		exit(1);
+	}
+	len = -1;
+	while (map[++len])
 	{
 		tmp_map[len] = ft_strdup(map[len]);
-		len++;
+		if (tmp_map[len] == NULL)
+		{
+			free_map(&map);
+			free_map(&tmp_map);
+			exit(1);
+		}
 	}
 	tmp_map[len] = NULL;
 	return (tmp_map);

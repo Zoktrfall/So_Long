@@ -10,9 +10,9 @@
 # include <fcntl.h>
 # include <math.h>
 // 42
-# include <mlx.h>
+// # include <mlx.h>
 // Home
-// # include "mlx.h"
+# include "mlx.h"
 
 //Delete
 #include <stdio.h>
