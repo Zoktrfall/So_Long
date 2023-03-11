@@ -3,7 +3,7 @@
 int	error_valid_way(void)
 {
 	write(1, "Error\nIncorrect Map Configuration\n", 34);
-	exit(0);
+	return (1);
 }
 
 void	fill_validation(char **map, t_player play, t_objects *medus)
@@ -84,6 +84,6 @@ int	valid_way(char **map)
 	fill_validation(tmp_map, play, &medus);
 	free_map(&tmp_map);
 	if (check_fill(map, medus))
-		error_valid_way();
+		return (1);
 	return (0);
 }
