@@ -40,16 +40,12 @@ int	refresh_image(t_gamedata *game)
 	return (0);
 }
 
-void enemy_motion_green(t_gamedata *game)
+void enemy_motion_green(t_gamedata *game, int y_axis, int x_axis)
 {
-	int	x_axis;
-	int	y_axis;
 	int	x;
 	int	y;
 	char	tmp;
 
-	x_axis = game->medus_green_pos.x;
-	y_axis = game->medus_green_pos.y;
 	x = game->medus_green_pos.x - game->player.x;
 	y = game->medus_green_pos.y - game->player.y;
 	if(y == 0)
@@ -183,7 +179,7 @@ void enemy_motion_green(t_gamedata *game)
 	}
 }
 
-void	anim_medus_green_moves(t_gamedata *game)
+void	anim_medus_moves(t_gamedata *game)
 {
 	if(game->medus_gamepath_green == W && game->game_over != 1)
 		medus_anim_up(&(game->lists.medus_green_up), game, game->lists.head_green_up);
@@ -206,16 +202,10 @@ void	enemy_image(t_gamedata *game)
 	ft_position(game->map, &(game->medus_red_pos), 'R');
 	ft_position(game->map, &(game->medus_blue_pos), 'B');
 	ft_position(game->map, &(game->medus_purple_pos), 'D');
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.medus_blue.ghost_down1, game->medus_blue_pos.x * SIZE, game->medus_blue_pos.y * SIZE);
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.medus_red.ghost_down1, game->medus_red_pos.x * SIZE, game->medus_red_pos.y * SIZE);
-	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
-	game->sprites.medus_purple.ghost_down1, game->medus_purple_pos.x * SIZE, game->medus_purple_pos.y * SIZE);
-	anim_medus_green_moves(game);
+	anim_medus_moves(game);
 	if(game->enemy_time == 12 && game->game_over != 1)
 	{
-		enemy_motion_green(game);
+		enemy_motion_green(game, game->medus_green_pos.y, game->medus_green_pos.x);
 		game->enemy_time = 0;
 	}
 	game->enemy_time += 1;

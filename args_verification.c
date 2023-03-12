@@ -2,7 +2,7 @@
 
 int	check_medus(size_t a, size_t b, size_t c, size_t d)
 {
-	if(a == 1 && b == 1 && c == 1 && d == 1)
+	if (a == 1 && b == 1 && c == 1 && d == 1)
 		return (0);
 	return (1);
 }
