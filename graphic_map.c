@@ -21,7 +21,7 @@ void	map_traversal(char *map, size_t y_axis, t_gamedata *game)
 
 int	refresh_image(t_gamedata *game)
 {
-	player_position(game->map, &(game->player));
+	ft_position(game->map, &(game->player), 'P');
 	if (game->gamepath == S && game->game_over != 1)
 		pacman_down(game);
 	else if (game->gamepath == W && game->game_over != 1)
@@ -197,7 +197,7 @@ void	anim_medus_green_moves(t_gamedata *game)
 
 void	enemy_image(t_gamedata *game)
 {
-	medus_g_position(game->map, &(game->medus_green_pos));
+	ft_position(game->map, &(game->medus_green_pos), 'M');
 	anim_medus_green_moves(game);
 	if(game->fol_med == 18)
 	{

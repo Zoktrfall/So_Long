@@ -168,7 +168,7 @@ int				correct_chearacters(char **map, size_t len);
 int				chearacters(char *str);
 
 //Position the player and count coins, enemies
-void			player_position(char **map, t_player *play);
+void			ft_position(char **map, t_player *play, char oper);
 size_t			count_enemies(char **map, size_t len);
 size_t			count_coins(char **map, size_t len);
 

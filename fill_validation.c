@@ -80,7 +80,7 @@ int	valid_way(char **map)
 	medus.enemies = 0;
 	medus.exit = 0;
 	tmp_map = creat_tmp(map);
-	player_position(map, &play);
+	ft_position(map, &play, 'P');
 	fill_validation(tmp_map, play, &medus);
 	free_map(&tmp_map);
 	if (check_fill(map, medus))

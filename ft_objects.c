@@ -46,7 +46,7 @@ size_t	count_enemies(char **map, size_t len)
 	return (enemies);
 }
 
-void	player_position(char **map, t_player *play)
+void	ft_position(char **map, t_player *play, char oper)
 {
 	(*play).x = 0;
 	(*play).y = 0;
@@ -54,30 +54,11 @@ void	player_position(char **map, t_player *play)
 	{	
 		while (map[(*play).y][(*play).x] != '\0')
 		{
-			if (map[(*play).y][(*play).x] == 'P')
+			if (map[(*play).y][(*play).x] == oper)
 				break ;
 			((*play).x)++;
 		}
-		if (map[(*play).y][(*play).x] == 'P')
-			break ;
-		((*play).x) = 0;
-		((*play).y)++;
-	}
-}
-
-void	medus_g_position(char **map, t_player *play)
-{
-	(*play).x = 0;
-	(*play).y = 0;
-	while (map[(*play).y])
-	{	
-		while (map[(*play).y][(*play).x] != '\0')
-		{
-			if (map[(*play).y][(*play).x] == 'M')
-				break ;
-			((*play).x)++;
-		}
-		if (map[(*play).y][(*play).x] == 'M')
+		if (map[(*play).y][(*play).x] == oper)
 			break ;
 		((*play).x) = 0;
 		((*play).y)++;

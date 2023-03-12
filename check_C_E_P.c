@@ -2,7 +2,7 @@
 
 int	error_c_e_p(void)
 {
-	write(1, "Error\nIncorrect Map Is Associated With E, P, or C!\n", 51);
+	write(1, "Error\nIncorrect Map Is Associated With E, P, M, or C!\n", 54);
 	return (1);
 }
 
