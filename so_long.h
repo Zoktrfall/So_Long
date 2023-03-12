@@ -93,24 +93,7 @@ typedef struct s_list {
 	struct s_list	*next;
 }	t_list;
 
-typedef struct s_gamedata {
-	void		*mlx_ptr;
-	void		*mlx_win;
-	size_t		y_axis;
-	size_t		x_axis;
-	t_player	player;
-	t_player	medus_green_pos;
-	t_player	medus_blue_pos;
-	t_player	medus_purple_pos;
-	t_player	medus_red_pos;
-	size_t		medus_gamepath_green;
-	size_t		score;
-	char		**map;
-	t_objects	objects;
-	size_t		coins_score;
-	size_t		game_over;
-	size_t		gamepath;
-	t_sprites	sprites;
+typedef struct s_animations {
 	t_list		*oper_right;
 	t_list		*head_right;
 	t_list		*oper_left;
@@ -129,11 +112,32 @@ typedef struct s_gamedata {
 	t_list		*head_green_left;
 	t_list		*medus_green_right;
 	t_list		*head_green_right;
-	size_t		time_medus;
-	size_t		time_pac;
-	size_t		enemy_time;
-	size_t		flag_dead;
-	size_t		max_time;
+}	t_animations;
+
+typedef struct s_gamedata {
+	t_animations	lists;		
+	void			*mlx_ptr;
+	void			*mlx_win;
+	size_t			y_axis;
+	size_t			x_axis;
+	t_player		player;
+	t_player		medus_green_pos;
+	t_player		medus_blue_pos;
+	t_player		medus_purple_pos;
+	t_player		medus_red_pos;
+	size_t			medus_gamepath_green;
+	size_t			score;
+	char			**map;
+	t_objects		objects;
+	size_t			coins_score;
+	size_t			game_over;
+	size_t			gamepath;
+	t_sprites		sprites;
+	size_t			time_medus;
+	size_t			time_pac;
+	size_t			enemy_time;
+	size_t			flag_dead;
+	size_t			max_time;
 }	t_gamedata;
 
 //The map is split or empty

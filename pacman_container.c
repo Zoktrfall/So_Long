@@ -32,23 +32,23 @@ t_list	*ft_container_pacman(t_gamedata *game, void *sprite1, \
 
 void	ft_containers_pacman(t_gamedata *game)
 {
-	game->oper_left = ft_container_pacman(game, \
+	game->lists.oper_left = ft_container_pacman(game, \
 	game->sprites.pac_man.pac_semi_left, game->sprites.pac_man.pac_open_left, \
 	game->sprites.pac_man.pac_semi_left);
-	game->head_left = game->oper_left;
-	game->oper_right = ft_container_pacman(game, \
+	game->lists.head_left = game->lists.oper_left;
+	game->lists.oper_right = ft_container_pacman(game, \
 	game->sprites.pac_man.pac_semi_right, game->sprites.pac_man.pac_open_right, \
 	game->sprites.pac_man.pac_semi_right);
-	game->head_right = game->oper_right;
-	game->oper_up = ft_container_pacman(game, \
+	game->lists.head_right = game->lists.oper_right;
+	game->lists.oper_up = ft_container_pacman(game, \
 	game->sprites.pac_man.pac_semi_up, game->sprites.pac_man.pac_open_up, \
 	game->sprites.pac_man.pac_semi_up);
-	game->head_up = game->oper_up;
-	game->oper_down = ft_container_pacman(game, \
+	game->lists.head_up = game->lists.oper_up;
+	game->lists.oper_down = ft_container_pacman(game, \
 	game->sprites.pac_man.pac_semi_down, game->sprites.pac_man.pac_open_down, \
 	game->sprites.pac_man.pac_semi_down);
-	game->head_down = game->oper_down;
-	game->pac_dying = ft_container_dying(game);
+	game->lists.head_down = game->lists.oper_down;
+	game->lists.pac_dying = ft_container_dying(game);
 }
 
 void	ft_containers(t_gamedata *game)

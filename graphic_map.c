@@ -186,13 +186,13 @@ void enemy_motion_green(t_gamedata *game)
 void	anim_medus_green_moves(t_gamedata *game)
 {
 	if(game->medus_gamepath_green == W && game->game_over != 1)
-		medus_anim_up(&(game->medus_green_up), game, game->head_green_up);
+		medus_anim_up(&(game->lists.medus_green_up), game, game->lists.head_green_up);
 	else if(game->medus_gamepath_green == S && game->game_over != 1)
-		medus_anim_down(&(game->medus_green_down), game, game->head_green_down);
+		medus_anim_down(&(game->lists.medus_green_down), game, game->lists.head_green_down);
 	else if(game->medus_gamepath_green == A && game->game_over != 1)
-		medus_anim_left(&(game->medus_green_left), game, game->head_green_left);
+		medus_anim_left(&(game->lists.medus_green_left), game, game->lists.head_green_left);
 	else if(game->medus_gamepath_green == D && game->game_over != 1)
-		medus_anim_right(&(game->medus_green_right), game, game->head_green_right);
+		medus_anim_right(&(game->lists.medus_green_right), game, game->lists.head_green_right);
 	else
 		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
 		game->sprites.medus_green.ghost_down1, game->medus_green_pos.x * SIZE, game->medus_green_pos.y * SIZE);
