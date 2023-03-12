@@ -117,7 +117,7 @@ void	creating_game(char **map, t_gamedata *game)
 	game->game_over = 0;
 	game->coins_score = 0;
 	game->max_time = 12 - ft_log(game->x_axis, game->y_axis);
-	game->fol_med = 0;
+	game->enemy_time = 0;
 	game->objects.coins = count_coins(map, y_axis);
 	game->objects.enemies = count_enemies(map, y_axis);
 	game->objects.exit = 1;

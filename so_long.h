@@ -125,7 +125,7 @@ typedef struct s_gamedata {
 	t_list		*head_green_right;
 	size_t		time_medus;
 	size_t		time_pac;
-	size_t		fol_med;
+	size_t		enemy_time;
 	size_t		flag_dead;
 	size_t		max_time;
 }	t_gamedata;

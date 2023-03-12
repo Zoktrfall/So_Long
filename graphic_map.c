@@ -182,13 +182,13 @@ void enemy_motion_green(t_gamedata *game)
 
 void	anim_medus_green_moves(t_gamedata *game)
 {
-	if(game->medus_gamepath_green == W)
+	if(game->medus_gamepath_green == W && game->game_over != 1)
 		medus_anim_up(&(game->medus_green_up), game, game->head_green_up);
-	else if(game->medus_gamepath_green == S)
+	else if(game->medus_gamepath_green == S && game->game_over != 1)
 		medus_anim_down(&(game->medus_green_down), game, game->head_green_down);
-	else if(game->medus_gamepath_green == A)
+	else if(game->medus_gamepath_green == A && game->game_over != 1)
 		medus_anim_left(&(game->medus_green_left), game, game->head_green_left);
-	else if(game->medus_gamepath_green == D)
+	else if(game->medus_gamepath_green == D && game->game_over != 1)
 		medus_anim_right(&(game->medus_green_right), game, game->head_green_right);
 	else
 		mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
@@ -199,12 +199,12 @@ void	enemy_image(t_gamedata *game)
 {
 	ft_position(game->map, &(game->medus_green_pos), 'M');
 	anim_medus_green_moves(game);
-	if(game->fol_med == 18)
+	if(game->enemy_time == 12 && game->game_over != 1)
 	{
 		enemy_motion_green(game);
-		game->fol_med = 0;
+		game->enemy_time = 0;
 	}
-	game->fol_med += 1;
+	game->enemy_time += 1;
 }
 
 int	graphic_map(t_gamedata *game)
