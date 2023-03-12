@@ -130,11 +130,6 @@ typedef struct s_gamedata {
 	size_t		max_time;
 }	t_gamedata;
 
-//Utils
-size_t			ft_log(size_t x, size_t y);
-t_list			*add_to_empty(t_list *head, void *sprite);
-t_list			*add_to_end(t_list *head, void *sprite);
-
 //The map is split or empty
 void			error_empty(char **map);
 void			error_divided(char **map);
@@ -194,6 +189,9 @@ size_t			counts(char **map);
 int				unprinted(char *str);
 
 //Utilities
+size_t			ft_log(size_t x, size_t y);
+t_list			*add_to_empty(t_list *head, void *sprite);
+t_list			*add_to_end(t_list *head, void *sprite);
 char			**ft_strcat(char **map, char **new_map, size_t i);
 char			*ft_strdup(const char *str);
 
