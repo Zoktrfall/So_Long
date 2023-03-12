@@ -197,6 +197,8 @@ void	anim_medus_green_moves(t_gamedata *game)
 
 void	enemy_image(t_gamedata *game)
 {
+	if(game->objects.enemies == 0)
+		return ;
 	ft_position(game->map, &(game->medus_green_pos), 'M');
 	anim_medus_green_moves(game);
 	if(game->enemy_time == 12 && game->game_over != 1)

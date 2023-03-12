@@ -242,18 +242,15 @@ void			medus_anim_right(t_list **sprite, \
 					t_gamedata *game, t_list *head);
 
 //Pacman motion animation and dying container
-t_list			*ft_container_right(t_gamedata *game);
-t_list			*ft_container_down(t_gamedata *game);
-t_list			*ft_container_up(t_gamedata *game);
-t_list			*ft_container_left(t_gamedata *game);
+void			ft_containers_pacman(t_gamedata *game);
+t_list			*ft_container_pacman(t_gamedata *game, void *sprite1, \
+					void *sprite2, void *sprite3);
 void			ft_containers(t_gamedata *game);
 t_list			*ft_container_dying(t_gamedata *game);
 
-void			medus_g_position(char **map, t_player *play);
-void			ft_containers_enemy_green(t_gamedata *game);
-t_list			*ft_container_enemy_green_left(t_gamedata *game);
-t_list			*ft_container_enemy_green_up(t_gamedata *game);
-t_list			*ft_container_enemy_green_down(t_gamedata *game);
-t_list			*ft_container_enemy_green_right(t_gamedata *game);
+//Medus motion animation container
+void			ft_containers_enemy(t_gamedata *game);
+void			ft_container_enemy_green(t_gamedata *game);
+t_list			*ft_container_enemy(t_gamedata *game, void *sprite1, void *sprite2);
 
 #endif
