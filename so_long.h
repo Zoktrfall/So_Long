@@ -161,11 +161,15 @@ int				last_y(char **str);
 int				error_walls(void);
 int				first_y(char *str);
 
-//Player, Exit, Jellyfish, Coins
+//Player, Exit, Medus, Coins
 int				error_c_e_p(void);
+int				duplicate_medus(char **map, size_t len, size_t x, size_t y);
+int				check_medus(size_t a, size_t b, size_t c, size_t d);
 int				check_e_p(char **map, size_t len);
 int				check_c_m(char **map, size_t len);
 int				do_check_c_e_p(char **map, size_t len);
+int				duplicate_medus(char **map, size_t len, \
+						size_t x, size_t y);
 
 //Correct chearacters in map
 int				check_c_e_p(char **map);

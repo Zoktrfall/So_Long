@@ -64,11 +64,42 @@ int	check_c_m(char **map, size_t len)
 	return (0);
 }
 
+int	duplicate_medus(char **map, size_t len, size_t x, size_t y)
+{
+	size_t	medus_b;
+	size_t	medus_r;
+	size_t	medus_g;
+	size_t	medus_p;
+
+	medus_b = 0;
+	medus_g = 0;
+	medus_p = 0;
+	medus_r = 0;
+	while (map[++y])
+	{
+		while (map[y][++x] != '\0')
+		{
+			if (map[y][x] == 'B')
+				medus_b++;
+			if (map[y][x] == 'G')
+				medus_g++;
+			if (map[y][x] == 'D')
+				medus_p++;
+			if (map[y][x] == 'R')
+				medus_r++;
+		}
+		x = -1;
+	}
+	return (check_medus(medus_b, medus_g, medus_r, medus_p));
+}
+
 int	do_check_c_e_p(char **map, size_t len)
 {
 	if (check_e_p(map, len))
 		return (1);
 	if (check_c_m(map, len))
+		return (1);
+	if (duplicate_medus(map, len, -1, -1))
 		return (1);
 	return (0);
 }

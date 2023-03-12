@@ -1,5 +1,12 @@
 #include "so_long.h"
 
+int	check_medus(size_t a, size_t b, size_t c, size_t d)
+{
+	if(a == 1 && b == 1 && c == 1 && d == 1)
+		return (0);
+	return (1);
+}
+
 int	args_verification(int argc, char **argv, char ***map)
 {
 	if (correct_arguments(argc, argv))
