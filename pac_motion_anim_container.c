@@ -55,4 +55,5 @@ void	ft_containers(t_gamedata *game)
 	game->oper_down = ft_container_down(game);
 	game->head_down = game->oper_down;
 	game->pac_dying = ft_container_dying(game);
+	ft_containers_enemy_green(game);
 }

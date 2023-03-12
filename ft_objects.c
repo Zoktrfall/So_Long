@@ -64,3 +64,22 @@ void	player_position(char **map, t_player *play)
 		((*play).y)++;
 	}
 }
+
+void	medus_g_position(char **map, t_player *play)
+{
+	(*play).x = 0;
+	(*play).y = 0;
+	while (map[(*play).y])
+	{	
+		while (map[(*play).y][(*play).x] != '\0')
+		{
+			if (map[(*play).y][(*play).x] == 'M')
+				break ;
+			((*play).x)++;
+		}
+		if (map[(*play).y][(*play).x] == 'M')
+			break ;
+		((*play).x) = 0;
+		((*play).y)++;
+	}
+}

@@ -10,9 +10,9 @@
 # include <fcntl.h>
 # include <math.h>
 // 42
-// # include <mlx.h>
+# include <mlx.h>
 // Home
-# include "mlx.h"
+// # include "mlx.h"
 
 //Delete
 #include <stdio.h>
@@ -28,8 +28,8 @@ enum e_gamepath {
 };
 
 typedef struct s_player {
-	size_t	x;
-	size_t	y;
+	int	x;
+	int	y;
 }	t_player;
 
 typedef struct s_objects {
@@ -65,12 +65,24 @@ typedef struct s_pacman {
 	t_pacman_dying	dead;
 }	t_pacman;
 
+typedef struct s_enemy {
+	void	*ghost_down1;
+	void	*ghost_down2;
+	void	*ghost_left1;
+	void	*ghost_left2;
+	void	*ghost_right1;
+	void	*ghost_right2;
+	void	*ghost_up1;
+	void	*ghost_up2;
+}	t_enemy;
+
 typedef struct s_sprites {
 	void		*walls;
 	void		*black;
 	void		*portal;
 	void		*coins;
 	t_pacman	pac_man;
+	t_enemy		medus_green;
 }	t_sprites;
 
 typedef struct s_list {
@@ -84,6 +96,8 @@ typedef struct s_gamedata {
 	size_t		y_axis;
 	size_t		x_axis;
 	t_player	player;
+	t_player	medus_green_pos;
+	size_t		medus_gamepath_green;
 	size_t		score;
 	char		**map;
 	t_objects	objects;
@@ -101,7 +115,17 @@ typedef struct s_gamedata {
 	t_list		*head_down;
 	t_list		*pac_dying;
 	t_list		*dying_head;
+	t_list		*medus_green_up;
+	t_list		*head_green_up;
+	t_list		*medus_green_down;
+	t_list		*head_green_down;
+	t_list		*medus_green_left;
+	t_list		*head_green_left;
+	t_list		*medus_green_right;
+	t_list		*head_green_right;
+	size_t		time_medus;
 	size_t		time_pac;
+	size_t		fol_med;
 	size_t		flag_dead;
 	size_t		max_time;
 }	t_gamedata;
@@ -210,6 +234,15 @@ void			pacman_up(t_gamedata *game);
 void			end_game(t_gamedata *game);
 void			pac_dead_animation(t_gamedata *game);
 
+//Medus motion animation
+void			medus_anim_up(t_list **sprite, t_gamedata *game, t_list *head);
+void			medus_anim_down(t_list **sprite, \
+					t_gamedata *game, t_list *head);
+void			medus_anim_left(t_list **sprite, \
+					t_gamedata *game, t_list *head);
+void			medus_anim_right(t_list **sprite, \
+					t_gamedata *game, t_list *head);
+
 //Pacman motion animation and dying container
 t_list			*ft_container_right(t_gamedata *game);
 t_list			*ft_container_down(t_gamedata *game);
@@ -217,5 +250,12 @@ t_list			*ft_container_up(t_gamedata *game);
 t_list			*ft_container_left(t_gamedata *game);
 void			ft_containers(t_gamedata *game);
 t_list			*ft_container_dying(t_gamedata *game);
+
+void			medus_g_position(char **map, t_player *play);
+void			ft_containers_enemy_green(t_gamedata *game);
+t_list			*ft_container_enemy_green_left(t_gamedata *game);
+t_list			*ft_container_enemy_green_up(t_gamedata *game);
+t_list			*ft_container_enemy_green_down(t_gamedata *game);
+t_list			*ft_container_enemy_green_right(t_gamedata *game);
 
 #endif

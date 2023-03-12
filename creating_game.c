@@ -55,6 +55,30 @@ t_pacman	add_sprites_pacman(t_gamedata *game)
 	return (game->sprites.pac_man);
 }
 
+t_enemy	add_sprites_medus_g(t_gamedata *game)
+{
+	int size;
+
+	size = SIZE;
+	game->sprites.medus_green.ghost_down1 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_down1.xpm", &size, &size);
+	game->sprites.medus_green.ghost_down2 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_down2.xpm", &size, &size);
+	game->sprites.medus_green.ghost_left1 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_left1.xpm", &size, &size);
+	game->sprites.medus_green.ghost_left2 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_left2.xpm", &size, &size);
+	game->sprites.medus_green.ghost_right1 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_right1.xpm", &size, &size);
+	game->sprites.medus_green.ghost_right2 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_right2.xpm", &size, &size);
+	game->sprites.medus_green.ghost_up1 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_up1.xpm", &size, &size);
+	game->sprites.medus_green.ghost_up2 = mlx_xpm_file_to_image(game->mlx_ptr, \
+		"sprites/Ghosts/G/ghost_up2.xpm", &size, &size);
+	return (game->sprites.medus_green);
+}
+
 t_sprites	ft_sprites(t_gamedata *game)
 {
 	int	size;
@@ -69,6 +93,7 @@ t_sprites	ft_sprites(t_gamedata *game)
 	game->sprites.portal = mlx_xpm_file_to_image(game->mlx_ptr, \
 			"sprites/Other/Portal/portal.xpm", &size, &size);
 	game->sprites.pac_man = add_sprites_pacman(game);
+	game->sprites.medus_green = add_sprites_medus_g(game);
 	return (game->sprites);
 }
 
@@ -84,16 +109,19 @@ void	creating_game(char **map, t_gamedata *game)
 		y_axis++;
 	while (map[0][x_axis] != '\0')
 		x_axis++;
-	player_position(map, &(game->player));
 	game->x_axis = x_axis;
 	game->y_axis = y_axis;
+	game->time_pac = 0;
+	game->time_medus = 0;
 	game->score = 0;
 	game->game_over = 0;
 	game->coins_score = 0;
 	game->max_time = 12 - ft_log(game->x_axis, game->y_axis);
+	game->fol_med = 0;
 	game->objects.coins = count_coins(map, y_axis);
 	game->objects.enemies = count_enemies(map, y_axis);
 	game->objects.exit = 1;
+	game->medus_gamepath_green = -1;
 	game->gamepath = -1;
 	game->flag_dead = 0;
 	game->sprites = ft_sprites(game);
