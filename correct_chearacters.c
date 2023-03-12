@@ -7,9 +7,11 @@ int	chearacters(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == 'M' || str[i] == '0'
+		if (str[i] == 'B' || str[i] == '0'
 			|| str[i] == '1' || str[i] == 'E'
-			|| str[i] == 'P' || str[i] == 'C')
+			|| str[i] == 'P' || str[i] == 'C'
+			|| str[i] == 'R' || str[i] == 'D'
+			|| str[i] == 'G')
 			i++;
 		else
 			return (1);

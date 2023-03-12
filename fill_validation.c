@@ -14,7 +14,8 @@ void	fill_validation(char **map, t_player play, t_objects *medus)
 		((*medus).coins)++;
 	if (map[play.y][play.x] == 'E')
 		((*medus).exit)++;
-	if (map[play.y][play.x] == 'M')
+	if (map[play.y][play.x] == 'G' || map[play.y][play.x] == 'R'
+		|| map[play.y][play.x] == 'B' || map[play.y][play.x] == 'D')
 		((*medus).enemies)++;
 	map[play.y][play.x] = '5';
 	fill_validation(map, (t_player){(play.x) + 1, (play.y)}, (medus));

@@ -83,6 +83,9 @@ typedef struct s_sprites {
 	void		*coins;
 	t_pacman	pac_man;
 	t_enemy		medus_green;
+	t_enemy		medus_red;
+	t_enemy		medus_purple;
+	t_enemy		medus_blue;
 }	t_sprites;
 
 typedef struct s_list {
@@ -97,6 +100,9 @@ typedef struct s_gamedata {
 	size_t		x_axis;
 	t_player	player;
 	t_player	medus_green_pos;
+	t_player	medus_blue_pos;
+	t_player	medus_purple_pos;
+	t_player	medus_red_pos;
 	size_t		medus_gamepath_green;
 	size_t		score;
 	char		**map;
@@ -207,11 +213,17 @@ size_t			ft_strlen(const char *str);
 int				characters_str(char *str);
 int				characters_ptr(char *str);
 
+//Sprites Pac-Man and Medus
+t_pacman_dying	pacman_dying(t_pacman_dying *dead, t_gamedata *game, int size);
+t_pacman		add_sprites_pacman(t_gamedata *game);
+t_enemy			add_sprites_medus_green(t_gamedata *game, int size);
+t_enemy			add_sprites_medus_blue(t_gamedata *game, int size);
+t_enemy			add_sprites_medus_red(t_gamedata *game, int size);
+t_enemy			add_sprites_medus_purple(t_gamedata *game, int size);
+
 //Making Pac-Man
 void			creating_game(char **map, t_gamedata *game);
 t_sprites		ft_sprites(t_gamedata *game);
-t_pacman		add_sprites_pacman(t_gamedata *game);
-t_pacman_dying	pacman_dying(t_pacman_dying *dead, t_gamedata *game, int size);
 
 //Gamepath
 int				character_movement(int key_code, t_gamedata *game);
@@ -251,6 +263,7 @@ t_list			*ft_container_dying(t_gamedata *game);
 //Medus motion animation container
 void			ft_containers_enemy(t_gamedata *game);
 void			ft_container_enemy_green(t_gamedata *game);
-t_list			*ft_container_enemy(t_gamedata *game, void *sprite1, void *sprite2);
+t_list			*ft_container_enemy(t_gamedata *game, \
+					void *sprite1, void *sprite2);
 
 #endif

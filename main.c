@@ -6,7 +6,6 @@ int end_program()
 	exit(0);
 }
 
-
 void	start_game(t_gamedata *game, char **map)
 {
 	game->mlx_ptr = mlx_init();

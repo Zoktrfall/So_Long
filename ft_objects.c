@@ -36,7 +36,8 @@ size_t	count_enemies(char **map, size_t len)
 	{
 		while (map[y_axis][x_axis] != '\0')
 		{
-			if (map[y_axis][x_axis] == 'M')
+			if (map[y_axis][x_axis] == 'B' || map[y_axis][x_axis] == 'D'
+			|| map[y_axis][x_axis] == 'R' || map[y_axis][x_axis] == 'G')
 				enemies++;
 			x_axis++;
 		}

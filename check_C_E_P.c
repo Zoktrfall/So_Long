@@ -42,22 +42,22 @@ int	check_c_m(char **map, size_t len)
 	size_t	coins;
 	size_t	medus;
 
-	y_axis = 1;
+	y_axis = 0;
 	x_axis = 0;
 	coins = 0;
 	medus = 0;
-	while (y_axis < len - 1)
+	while (++y_axis < len - 1)
 	{
 		while (map[y_axis][x_axis] != '\0')
 		{
-			if (map[y_axis][x_axis] == 'M')
+			if (map[y_axis][x_axis] == 'G' || map[y_axis][x_axis] == 'R'
+				|| map[y_axis][x_axis] == 'D' || map[y_axis][x_axis] == 'B')
 				medus++;
 			if (map[y_axis][x_axis] == 'C')
 				coins++;
 			x_axis++;
 		}
 		x_axis = 0;
-		y_axis++;
 	}
 	if (!(coins >= 1 && medus <= 4))
 		return (1);

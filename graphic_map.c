@@ -16,6 +16,9 @@ void	map_traversal(char *map, size_t y_axis, t_gamedata *game)
 		if (map[x_axis] == 'E')
 			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
 			game->sprites.portal, x_axis * SIZE, y_axis * SIZE);
+		if (map[x_axis] == '0')
+			mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+			game->sprites.black, x_axis * SIZE, y_axis * SIZE);
 	}
 }
 
@@ -55,7 +58,7 @@ void enemy_motion_green(t_gamedata *game)
 		{
 			if((game->map)[y_axis][x_axis - 1] != '1')
 			{
-				(game->map)[y_axis][x_axis - 1] = 'M';
+				(game->map)[y_axis][x_axis - 1] = 'G';
 				(game->map)[y_axis][x_axis] = '0';
 				game->medus_gamepath_green = A;
 			}
@@ -63,19 +66,19 @@ void enemy_motion_green(t_gamedata *game)
 			{
 				if((game->map)[y_axis - 1][x_axis] != '1')
 				{
-					(game->map)[y_axis - 1][x_axis] = 'M';
+					(game->map)[y_axis - 1][x_axis] = 'G';
 					(game->map)[y_axis][x_axis] = '0';
 					game->medus_gamepath_green = W;
 				}
 				else if((game->map)[y_axis + 1][x_axis] != '1')
 				{
-					(game->map)[y_axis + 1][x_axis] = 'M';
+					(game->map)[y_axis + 1][x_axis] = 'G';
 					(game->map)[y_axis][x_axis] = '0';
 					game->medus_gamepath_green = S;
 				}
 				else if((game->map)[y_axis][x_axis + 1] != '1')
 				{
-					(game->map)[y_axis][x_axis + 1] = 'M';
+					(game->map)[y_axis][x_axis + 1] = 'G';
 					(game->map)[y_axis][x_axis] = '0';
 					game->medus_gamepath_green = D;
 				}
@@ -85,7 +88,7 @@ void enemy_motion_green(t_gamedata *game)
 		{
 			if((game->map)[y_axis][x_axis + 1] != '1')
 			{
-				(game->map)[y_axis][x_axis + 1] = 'M';
+				(game->map)[y_axis][x_axis + 1] = 'G';
 				(game->map)[y_axis][x_axis] = '0';
 				game->medus_gamepath_green = D;
 			}
@@ -93,19 +96,19 @@ void enemy_motion_green(t_gamedata *game)
 			{
 				if((game->map)[y_axis + 1][x_axis] != '1')
 				{
-					(game->map)[y_axis + 1][x_axis] = 'M';
+					(game->map)[y_axis + 1][x_axis] = 'G';
 					(game->map)[y_axis][x_axis] = '0';
 					game->medus_gamepath_green = S;
 				}
 				else if((game->map)[y_axis - 1][x_axis] != '1')
 				{
-					(game->map)[y_axis - 1][x_axis] = 'M';
+					(game->map)[y_axis - 1][x_axis] = 'G';
 					(game->map)[y_axis][x_axis] = '0';
 					game->medus_gamepath_green = W;
 				}
 				else if((game->map)[y_axis][x_axis - 1] != '1')
 				{
-					(game->map)[y_axis][x_axis - 1] = 'M';
+					(game->map)[y_axis][x_axis - 1] = 'G';
 					(game->map)[y_axis][x_axis] = '0';
 					game->medus_gamepath_green = A;
 				}
@@ -116,7 +119,7 @@ void enemy_motion_green(t_gamedata *game)
 	{
 		if((game->map)[y_axis - 1][x_axis] != '1')
 		{
-			(game->map)[y_axis - 1][x_axis] = 'M';
+			(game->map)[y_axis - 1][x_axis] = 'G';
 			(game->map)[y_axis][x_axis] = '0';
 			game->medus_gamepath_green = W;
 		}
@@ -124,7 +127,7 @@ void enemy_motion_green(t_gamedata *game)
 		{
 			if((game->map)[y_axis][x_axis - 1] != '1')
 			{
-				(game->map)[y_axis][x_axis - 1] = 'M';
+				(game->map)[y_axis][x_axis - 1] = 'G';
 				(game->map)[y_axis][x_axis] = '0';
 				game->medus_gamepath_green = A;
 			}
@@ -133,14 +136,14 @@ void enemy_motion_green(t_gamedata *game)
 		{
 			if((game->map)[y_axis][x_axis + 1] != '1')
 			{
-				(game->map)[y_axis][x_axis + 1] = 'M';
+				(game->map)[y_axis][x_axis + 1] = 'G';
 				(game->map)[y_axis][x_axis] = '0';
 				game->medus_gamepath_green = D;
 			}
 		}
 		else if ((game->map)[y_axis + 1][x_axis] != '1')
 		{
-			(game->map)[y_axis + 1][x_axis] = 'M';
+			(game->map)[y_axis + 1][x_axis] = 'G';
 			(game->map)[y_axis][x_axis] = '0';
 			game->medus_gamepath_green = S;
 		}
@@ -149,7 +152,7 @@ void enemy_motion_green(t_gamedata *game)
 	{
 		if((game->map)[y_axis + 1][x_axis] != '1')
 		{
-			(game->map)[y_axis + 1][x_axis] = 'M';
+			(game->map)[y_axis + 1][x_axis] = 'G';
 			(game->map)[y_axis][x_axis] = '0';
 			game->medus_gamepath_green = S;
 		}
@@ -157,7 +160,7 @@ void enemy_motion_green(t_gamedata *game)
 		{
 			if((game->map)[y_axis][x_axis - 1] != '1')
 			{
-				(game->map)[y_axis][x_axis - 1] = 'M';
+				(game->map)[y_axis][x_axis - 1] = 'G';
 				(game->map)[y_axis][x_axis] = '0';
 				game->medus_gamepath_green = A;
 			}
@@ -166,14 +169,14 @@ void enemy_motion_green(t_gamedata *game)
 		{
 			if((game->map)[y_axis][x_axis + 1] != '1')
 			{
-				(game->map)[y_axis][x_axis + 1] = 'M';
+				(game->map)[y_axis][x_axis + 1] = 'G';
 				(game->map)[y_axis][x_axis] = '0';
 				game->medus_gamepath_green = D;
 			}
 		}
 		else if((game->map)[y_axis - 1][x_axis] != '1')
 		{
-			(game->map)[y_axis - 1][x_axis] = 'M';
+			(game->map)[y_axis - 1][x_axis] = 'G';
 			(game->map)[y_axis][x_axis] = '0';
 			game->medus_gamepath_green = W;
 		}
@@ -199,7 +202,16 @@ void	enemy_image(t_gamedata *game)
 {
 	if(game->objects.enemies == 0)
 		return ;
-	ft_position(game->map, &(game->medus_green_pos), 'M');
+	ft_position(game->map, &(game->medus_green_pos), 'G');
+	ft_position(game->map, &(game->medus_red_pos), 'R');
+	ft_position(game->map, &(game->medus_blue_pos), 'B');
+	ft_position(game->map, &(game->medus_purple_pos), 'D');
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.medus_blue.ghost_down1, game->medus_blue_pos.x * SIZE, game->medus_blue_pos.y * SIZE);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.medus_red.ghost_down1, game->medus_red_pos.x * SIZE, game->medus_red_pos.y * SIZE);
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.medus_purple.ghost_down1, game->medus_purple_pos.x * SIZE, game->medus_purple_pos.y * SIZE);
 	anim_medus_green_moves(game);
 	if(game->enemy_time == 12 && game->game_over != 1)
 	{
