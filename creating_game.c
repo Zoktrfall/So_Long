@@ -13,6 +13,8 @@ t_sprites	ft_sprites(t_gamedata *game)
 			"sprites/Other/Pacdots/pacdot_food.xpm", &size, &size);
 	game->sprites.portal = mlx_xpm_file_to_image(game->mlx_ptr, \
 			"sprites/Other/Portal/portal.xpm", &size, &size);
+	game->sprites.logo = mlx_xpm_file_to_image(game->mlx_ptr, \
+			"sprites/Other/Logo/logo.xpm", &size, &size);
 	game->sprites.pac_man = add_sprites_pacman(game);
 	game->sprites.medus_green = add_sprites_medus_green(game, SIZE);
 	game->sprites.medus_blue = add_sprites_medus_blue(game, SIZE);

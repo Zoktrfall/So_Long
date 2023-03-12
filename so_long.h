@@ -86,6 +86,7 @@ typedef struct s_sprites {
 	t_enemy		medus_red;
 	t_enemy		medus_purple;
 	t_enemy		medus_blue;
+	void		*logo;
 }	t_sprites;
 
 typedef struct s_list {

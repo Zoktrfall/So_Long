@@ -211,6 +211,12 @@ void	enemy_image(t_gamedata *game)
 	game->enemy_time += 1;
 }
 
+void	score_image(t_gamedata *game)
+{
+	mlx_put_image_to_window(game->mlx_ptr, game->mlx_win, \
+	game->sprites.logo, game->x_axis * 13, game->y_axis * 36);
+}
+
 int	graphic_map(t_gamedata *game)
 {
 	size_t	y_axis;
@@ -221,6 +227,7 @@ int	graphic_map(t_gamedata *game)
 		end_game(game);
 	refresh_image(game);
 	enemy_image(game);
+	score_image(game);
 	while ((game->map)[++y_axis])
 		map_traversal((game->map)[y_axis], y_axis, game);
 	return (0);
