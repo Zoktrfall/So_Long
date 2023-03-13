@@ -1,6 +1,7 @@
 #include "so_long.h"
 
-void	medus_anim_up(t_list **sprite, t_gamedata *game, t_list *head, t_player pos)
+void	medus_anim_up(t_list **sprite, t_gamedata *game, \
+				t_list *head, t_player pos)
 {
 	if ((*sprite)->next != NULL)
 	{
@@ -24,7 +25,8 @@ void	medus_anim_up(t_list **sprite, t_gamedata *game, t_list *head, t_player pos
 		game->time_medus = 0;
 }
 
-void	medus_anim_down(t_list **sprite, t_gamedata *game, t_list *head, t_player pos)
+void	medus_anim_down(t_list **sprite, t_gamedata *game, \
+				t_list *head, t_player pos)
 {
 	if ((*sprite)->next != NULL)
 	{
@@ -48,7 +50,8 @@ void	medus_anim_down(t_list **sprite, t_gamedata *game, t_list *head, t_player p
 		game->time_medus = 0;
 }
 
-void	medus_anim_left(t_list **sprite, t_gamedata *game, t_list *head, t_player pos)
+void	medus_anim_left(t_list **sprite, t_gamedata *game, \
+				t_list *head, t_player pos)
 {
 	if ((*sprite)->next != NULL)
 	{
@@ -72,7 +75,8 @@ void	medus_anim_left(t_list **sprite, t_gamedata *game, t_list *head, t_player p
 		game->time_medus = 0;
 }
 
-void	medus_anim_right(t_list **sprite, t_gamedata *game, t_list *head, t_player pos)
+void	medus_anim_right(t_list **sprite, t_gamedata *game, \
+				t_list *head, t_player pos)
 {
 	if ((*sprite)->next != NULL)
 	{

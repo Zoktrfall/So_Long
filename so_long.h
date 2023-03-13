@@ -139,6 +139,7 @@ typedef struct s_animations {
 	t_list		*head_purple_right;
 }	t_animations;
 
+
 typedef struct s_gamedata {
 	t_animations	lists;		
 	void			*mlx_ptr;
@@ -152,6 +153,8 @@ typedef struct s_gamedata {
 	t_player		medus_red_pos;
 	size_t			medus_gamepath_green;
 	size_t			medus_gamepath_blue;
+	size_t			medus_gamepath_red;
+	size_t			medus_gamepath_purple;
 	size_t			score;
 	char			**map;
 	t_objects		objects;
