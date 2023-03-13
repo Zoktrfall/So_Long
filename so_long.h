@@ -27,6 +27,13 @@ enum e_gamepath {
 	ESC = 53,
 };
 
+enum e_colors {
+	green = 0,
+	red = 1,
+	blue = 2,
+	purple = 3,
+};
+
 typedef struct s_player {
 	int	x;
 	int	y;
@@ -246,12 +253,14 @@ int				unprinted(char *str);
 
 //Utilities
 size_t			ft_log(size_t x, size_t y);
+void    		do_medus(t_gamedata *game, t_follower monstr, enum e_gamepath oper);
 t_list			*add_to_empty(t_list *head, void *sprite);
 t_list			*add_to_end(t_list *head, void *sprite);
 char			**ft_strcat(char **map, char **new_map, size_t i);
 char			*ft_strdup(const char *str);
 int				ft_strcmp_min(char str1, char str2);
 int				ft_if_else(t_gamedata *game, int x_axis, int y_axis);
+int				ft_if_else_equals(t_gamedata *game, int x_axis, int y_axis);
 
 //Get_Next_Line
 char			*get_next_line(int fd, int check);
@@ -304,6 +313,10 @@ void			medus_anim_left(t_list **sprite, \
 					t_gamedata *game, t_list *head, t_player pos);
 void			medus_anim_right(t_list **sprite, \
 					t_gamedata *game, t_list *head, t_player pos);
+void			anim_medus_moves_red(t_gamedata *game);
+void			anim_medus_moves_purple(t_gamedata *game);
+void			anim_medus_moves_blue(t_gamedata *game);
+void			anim_medus_moves_green(t_gamedata *game);
 
 //Medus, Pac-man motion animation container
 t_list			*ft_container_pacman(t_gamedata *game, void *sprite1, \
