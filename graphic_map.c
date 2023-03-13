@@ -147,12 +147,26 @@ void enemy_motion(t_gamedata *game, int y_axis, int x_axis, char medus)
 					else if(color_medus == 2)
 						game->medus_gamepath_blue = S;
 				}
-				// else if((game->map)[y_axis][x_axis + 1] != '1')
-				// {
-				// 	(game->map)[y_axis][x_axis + 1] = medus;
-				// 	(game->map)[y_axis][x_axis] = '0';
-				// 	game->medus_gamepath_green = D;
-				// }
+				else if((game->map)[y_axis][x_axis + 1] != '1' && (game->map)[y_axis][x_axis + 1] != 'R' && (game->map)[y_axis][x_axis + 1] != 'G'
+				&& (game->map)[y_axis][x_axis + 1] != 'E' && (game->map)[y_axis][x_axis + 1] != 'B' && (game->map)[y_axis][x_axis + 1] != 'D')
+				{
+					if((game->map)[y_axis][x_axis + 1] == 'C')
+						(game->flags_medus)[color_medus][1] = 1;
+					else
+						(game->flags_medus)[color_medus][1] = 0;
+					if((game->flags_medus)[color_medus][0] == 1)
+						tmp = 'C';
+					else
+						tmp = '0';
+					(game->map)[y_axis][x_axis + 1] = medus;
+					(game->map)[y_axis][x_axis] = tmp;
+					(game->flags_medus)[color_medus][0] = (game->flags_medus)[color_medus][1];
+					(game->flags_medus)[color_medus][1] = 0;
+					if(color_medus == 0)
+						game->medus_gamepath_green = S;
+					else if (color_medus == 2)
+						game->medus_gamepath_blue = S;
+				}
 			}
 		}
 		else if (x < 0)
@@ -235,12 +249,24 @@ void enemy_motion(t_gamedata *game, int y_axis, int x_axis, char medus)
 					else if (color_medus == 2)
 						game->medus_gamepath_blue = W;
 				}
-				// else if((game->map)[y_axis][x_axis - 1] != '1')
-				// {
-				// 	(game->map)[y_axis][x_axis - 1] = medus;
-				// 	(game->map)[y_axis][x_axis] = '0';
-				// 	game->medus_gamepath_green = A;
-				// }
+				else if((game->map)[y_axis][x_axis - 1] != '1' && (game->map)[y_axis][x_axis - 1] != 'G' && (game->map)[y_axis][x_axis - 1] != 'R'
+				&& (game->map)[y_axis][x_axis - 1] != 'E' && (game->map)[y_axis][x_axis - 1] != 'B' && (game->map)[y_axis][x_axis - 1] != 'D')
+				{
+					if((game->map)[y_axis][x_axis - 1] == 'C')
+						(game->flags_medus)[color_medus][1] = 1;
+					else
+						(game->flags_medus)[color_medus][1] = 0;
+					if((game->flags_medus)[color_medus][0] == 1)
+						tmp = 'C';
+					else
+						tmp = '0';
+					(game->map)[y_axis][x_axis - 1] = medus;
+					(game->map)[y_axis][x_axis] = tmp;
+					if(color_medus == 0)
+						game->medus_gamepath_green = A;
+					else if(color_medus == 2)
+						game->medus_gamepath_blue = A;
+				}
 			}
 		}
 	}
@@ -327,12 +353,26 @@ void enemy_motion(t_gamedata *game, int y_axis, int x_axis, char medus)
 					game->medus_gamepath_blue = D;
 			}
 		}
-		// else if ((game->map)[y_axis + 1][x_axis] != '1')
-		// {
-		// 	(game->map)[y_axis + 1][x_axis] = medus;
-		// 	(game->map)[y_axis][x_axis] = '0';
-		// 	game->medus_gamepath_green = S;
-		// }
+		else if ((game->map)[y_axis + 1][x_axis] != '1' && (game->map)[y_axis + 1][x_axis] != 'G' && (game->map)[y_axis + 1][x_axis] != 'R'
+		&& (game->map)[y_axis + 1][x_axis] != 'E' && (game->map)[y_axis + 1][x_axis] != 'B' && (game->map)[y_axis + 1][x_axis] != 'D')
+		{
+			if((game->map)[y_axis + 1][x_axis] == 'C')
+				(game->flags_medus)[color_medus][1] = 1;
+			else
+				(game->flags_medus)[color_medus][1] = 0;
+			if((game->flags_medus)[color_medus][0] == 1)
+				tmp = 'C';
+			else
+				tmp = '0';
+			(game->map)[y_axis + 1][x_axis] = medus;
+			(game->map)[y_axis][x_axis] = tmp;
+			(game->flags_medus)[color_medus][0] = (game->flags_medus)[color_medus][1];
+			(game->flags_medus)[color_medus][1] = 0;
+			if(color_medus == 0)
+				game->medus_gamepath_green = S;
+			else if(color_medus == 2)
+				game->medus_gamepath_blue = S;
+		}
 	}
 	else if (y < 0)
 	{
@@ -417,12 +457,26 @@ void enemy_motion(t_gamedata *game, int y_axis, int x_axis, char medus)
 					game->medus_gamepath_blue = D;
 			}
 		}
-		// else if((game->map)[y_axis - 1][x_axis] != '1')
-		// {
-		// 	(game->map)[y_axis - 1][x_axis] = medus;
-		// 	(game->map)[y_axis][x_axis] = '0';
-		// 	game->medus_gamepath_green = W;
-		// }
+		else if((game->map)[y_axis - 1][x_axis] != '1' && (game->map)[y_axis - 1][x_axis] != 'G' && (game->map)[y_axis - 1][x_axis] != 'R'
+		&& (game->map)[y_axis - 1][x_axis] != 'E' && (game->map)[y_axis - 1][x_axis] != 'B' && (game->map)[y_axis - 1][x_axis] != 'D')
+		{
+			if((game->map)[y_axis - 1][x_axis] == 'C')
+				(game->flags_medus)[color_medus][1] = 1;
+			else
+				(game->flags_medus)[color_medus][1] = 0;
+			if((game->flags_medus)[color_medus][0] == 1)
+				tmp = 'C';
+			else
+				tmp = '0';
+			(game->map)[y_axis - 1][x_axis] = medus;
+			(game->map)[y_axis][x_axis] = tmp;
+			(game->flags_medus)[color_medus][0] = (game->flags_medus)[color_medus][1];
+			(game->flags_medus)[color_medus][1] = 0;
+			if(color_medus == 0)
+				game->medus_gamepath_green = W;
+			else if (color_medus == 2)
+				game->medus_gamepath_blue = W;
+		}
 	}
 }
 
