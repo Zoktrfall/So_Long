@@ -280,13 +280,13 @@ void			end_game(t_gamedata *game);
 void			pac_dead_animation(t_gamedata *game);
 
 //Medus motion animation
-void			medus_anim_up(t_list **sprite, t_gamedata *game, t_list *head);
+void			medus_anim_up(t_list **sprite, t_gamedata *game, t_list *head, t_player pos);
 void			medus_anim_down(t_list **sprite, \
-					t_gamedata *game, t_list *head);
+					t_gamedata *game, t_list *head, t_player pos);
 void			medus_anim_left(t_list **sprite, \
-					t_gamedata *game, t_list *head);
+					t_gamedata *game, t_list *head, t_player pos);
 void			medus_anim_right(t_list **sprite, \
-					t_gamedata *game, t_list *head);
+					t_gamedata *game, t_list *head, t_player pos);
 
 //Medus, Pac-man motion animation container
 t_list			*ft_container_pacman(t_gamedata *game, void *sprite1, \
