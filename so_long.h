@@ -94,6 +94,18 @@ typedef struct s_list {
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_follower {
+	int	x_axis;
+	int	y_axis;
+	char tmp;
+	int color_medus;
+	int x;
+	int y;
+	char medus;
+
+
+}	t_follower;
+
 typedef struct s_animations {
 	t_list		*oper_right;
 	t_list		*head_right;
@@ -238,6 +250,8 @@ t_list			*add_to_empty(t_list *head, void *sprite);
 t_list			*add_to_end(t_list *head, void *sprite);
 char			**ft_strcat(char **map, char **new_map, size_t i);
 char			*ft_strdup(const char *str);
+int				ft_strcmp_min(char str1, char str2);
+int				ft_if_else(t_gamedata *game, int x_axis, int y_axis);
 
 //Get_Next_Line
 char			*get_next_line(int fd, int check);
@@ -304,5 +318,31 @@ void			ft_container_enemy_blue(t_gamedata *game);
 void			ft_container_enemy_purple(t_gamedata *game);
 t_list			*ft_container_dying(t_gamedata *game);
 void			ft_containers_pacman(t_gamedata *game);
+
+
+
+void    follower_part1(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part2(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part3(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part4(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part5(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part6(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part7(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part8(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part9(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part10(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part11(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part12(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part13(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part14(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part15(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part16(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part17(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part18(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part19(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part20(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part21(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part22(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
+void    follower_part23(t_gamedata *game, t_follower monstr, int x_axis, int y_axis);
 
 #endif
