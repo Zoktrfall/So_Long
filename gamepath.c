@@ -7,12 +7,13 @@ void	move_up(t_gamedata *game)
 
 	x = game->player.x;
 	y = game->player.y;
-	if ((game->map)[y - 1][x] == 'E')
+	if ((game->map)[y - 1][x] == 'E'
+		&& game->coins_score == game->objects.coins)
 	{
 		mlx_destroy_image(game->mlx_ptr, game->mlx_win);
 		exit(0);
 	}
-	if ((game->map)[y - 1][x] != '1')
+	if (ft_if_else(game, x, y - 1))
 	{
 		game->map[y - 1][x] = 'P';
 		game->map[y][x] = '0';
@@ -27,12 +28,13 @@ void	move_down(t_gamedata *game)
 
 	x = game->player.x;
 	y = game->player.y;
-	if ((game->map)[y + 1][x] == 'E')
+	if ((game->map)[y + 1][x] == 'E'
+		&& game->coins_score == game->objects.coins)
 	{
 		mlx_destroy_image(game->mlx_ptr, game->mlx_win);
 		exit(0);
 	}
-	if ((game->map)[y + 1][x] != '1')
+	if (ft_if_else(game, x, y + 1))
 	{
 		game->map[y + 1][x] = 'P';
 		game->map[y][x] = '0';
@@ -47,12 +49,13 @@ void	move_rigth(t_gamedata *game)
 
 	x = game->player.x;
 	y = game->player.y;
-	if ((game->map)[y][x + 1] == 'E')
+	if ((game->map)[y][x + 1] == 'E'
+		&& game->coins_score == game->objects.coins)
 	{
 		mlx_destroy_image(game->mlx_ptr, game->mlx_win);
 		exit(0);
 	}
-	if ((game->map)[y][x + 1] != '1')
+	if (ft_if_else(game, x + 1, y))
 	{
 		game->map[y][x + 1] = 'P';
 		game->map[y][x] = '0';
@@ -67,12 +70,13 @@ void	move_left(t_gamedata *game)
 
 	x = game->player.x;
 	y = game->player.y;
-	if ((game->map)[y][x - 1] == 'E')
+	if ((game->map)[y][x - 1] == 'E'
+		&& game->coins_score == game->objects.coins)
 	{
 		mlx_destroy_image(game->mlx_ptr, game->mlx_win);
 		exit(0);
 	}
-	if ((game->map)[y][x - 1] != '1')
+	if (ft_if_else(game, x - 1, y))
 	{
 		game->map[y][x - 1] = 'P';
 		game->map[y][x] = '0';
@@ -95,10 +99,5 @@ int	character_movement(int key_code, t_gamedata *game)
 		move_rigth(game);
 	else if (key_code == A && game->game_over != 1)
 		move_left(game);
-	else if (key_code == 40)
-	{
-		game->gamepath = -1;
-		game->game_over = 1;
-	}
 	return (0);
 }
