@@ -113,6 +113,30 @@ typedef struct s_animations {
 	t_list		*head_green_left;
 	t_list		*medus_green_right;
 	t_list		*head_green_right;
+	t_list		*medus_red_up;
+	t_list		*head_red_up;
+	t_list		*medus_red_down;
+	t_list		*head_red_down;
+	t_list		*medus_red_left;
+	t_list		*head_red_left;
+	t_list		*medus_red_right;
+	t_list		*head_red_right;
+	t_list		*medus_blue_up;
+	t_list		*head_blue_up;
+	t_list		*medus_blue_down;
+	t_list		*head_blue_down;
+	t_list		*medus_blue_left;
+	t_list		*head_blue_left;
+	t_list		*medus_blue_right;
+	t_list		*head_blue_right;
+	t_list		*medus_purple_up;
+	t_list		*head_purple_up;
+	t_list		*medus_purple_down;
+	t_list		*head_purple_down;
+	t_list		*medus_purple_left;
+	t_list		*head_purple_left;
+	t_list		*medus_purple_right;
+	t_list		*head_purple_right;
 }	t_animations;
 
 typedef struct s_gamedata {
@@ -262,17 +286,18 @@ void			medus_anim_left(t_list **sprite, \
 void			medus_anim_right(t_list **sprite, \
 					t_gamedata *game, t_list *head);
 
-//Pacman motion animation and dying container
-void			ft_containers_pacman(t_gamedata *game);
+//Medus, Pac-man motion animation container
 t_list			*ft_container_pacman(t_gamedata *game, void *sprite1, \
 					void *sprite2, void *sprite3);
 void			ft_containers(t_gamedata *game);
-t_list			*ft_container_dying(t_gamedata *game);
-
-//Medus motion animation container
 void			ft_containers_enemy(t_gamedata *game);
-void			ft_container_enemy_green(t_gamedata *game);
 t_list			*ft_container_enemy(t_gamedata *game, \
 					void *sprite1, void *sprite2);
+void			ft_container_enemy_green(t_gamedata *game);
+void			ft_container_enemy_red(t_gamedata *game);
+void			ft_container_enemy_blue(t_gamedata *game);
+void			ft_container_enemy_purple(t_gamedata *game);
+t_list			*ft_container_dying(t_gamedata *game);
+void			ft_containers_pacman(t_gamedata *game);
 
 #endif
