@@ -87,13 +87,13 @@ int	character_movement(int key_code, t_gamedata *game)
 		mlx_destroy_window(game->mlx_ptr, game->mlx_win);
 		exit (0);
 	}
-	if (key_code == W)
+	if (key_code == W && game->game_over != 1)
 		move_up(game);
-	else if (key_code == S)
+	else if (key_code == S && game->game_over != 1)
 		move_down(game);
-	else if (key_code == D)
+	else if (key_code == D && game->game_over != 1)
 		move_rigth(game);
-	else if (key_code == A)
+	else if (key_code == A && game->game_over != 1)
 		move_left(game);
 	else if (key_code == 40)
 	{

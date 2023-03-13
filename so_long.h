@@ -151,6 +151,7 @@ typedef struct s_gamedata {
 	t_player		medus_purple_pos;
 	t_player		medus_red_pos;
 	size_t			medus_gamepath_green;
+	size_t			medus_gamepath_blue;
 	size_t			score;
 	char			**map;
 	t_objects		objects;
@@ -163,6 +164,7 @@ typedef struct s_gamedata {
 	size_t			enemy_time;
 	size_t			flag_dead;
 	size_t			max_time;
+	int				**flags_medus;
 }	t_gamedata;
 
 //The map is split or empty

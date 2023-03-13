@@ -23,6 +23,27 @@ t_sprites	ft_sprites(t_gamedata *game)
 	return (game->sprites);
 }
 
+int 	**create_flags(int **flags)
+{
+	size_t	j;
+
+	j = 0;
+	flags = malloc(sizeof(int *) * 4);
+	while(j < 4)
+	{
+		flags[j] = malloc(sizeof(int) * 2);
+		j++;
+	}
+	j = 0;
+	while(j < 4)
+	{
+		flags[j][0] = 0;
+		flags[j][1] = 0;
+		j++;
+	}
+	return flags;
+}
+
 void	creating_game(char **map, t_gamedata *game)
 {
 	size_t	x_axis;
@@ -48,8 +69,10 @@ void	creating_game(char **map, t_gamedata *game)
 	game->objects.enemies = count_enemies(map, y_axis);
 	game->objects.exit = 1;
 	game->medus_gamepath_green = -1;
+	game->medus_gamepath_blue = -1;
 	game->gamepath = -1;
 	game->flag_dead = 0;
+	game->flags_medus = create_flags(game->flags_medus);
 	game->sprites = ft_sprites(game);
 	ft_containers(game);
 }
